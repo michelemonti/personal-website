@@ -75,7 +75,7 @@ p, li {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Cambia da wrap a nowrap per desktop */
   width: 100%;
 }
 .logo-item {
@@ -131,6 +131,42 @@ blockquote {
   font-style: italic;
   font-size: 1.05rem;
 }
+.section {
+  background: #232323; /* Grigio più chiaro rispetto a #181818 */
+  border-radius: 12px;
+  margin: 2.5rem 0;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 16px 0 rgba(133, 133, 133, 0.795);
+}
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.section-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.1rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0003;
+  border: 2px solid #fff;
+  background: #fff;
+  color: #111;
+}
+.section h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+#bg3d {
+  pointer-events: none;
+}
 @media (max-width: 600px) {
   body {
     padding: 1rem;
@@ -153,6 +189,7 @@ blockquote {
     flex-direction: column;
     align-items: stretch;
     gap: 1.5rem;
+    flex-wrap: wrap; /* Su mobile torna wrap */
   }
   .logo-item {
     width: 100%;
@@ -165,3 +202,23 @@ blockquote {
     margin-left: auto;
     margin-right: auto;
     display: block;
+  }
+  .section {
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    background: #232323;
+  }
+  .section-header {
+    gap: 0.7rem;
+  }
+  .section-icon {
+    font-size: 1.3rem;
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+  .section h2 {
+    font-size: 1.05rem;
+  }
+}
+<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+<body>
+  <div id="bg3d"></div>
