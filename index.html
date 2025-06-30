@@ -3,72 +3,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michele Monti | Bio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 2rem;
-      font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: #f4f4f4;
-      line-height: 1.6;
-      max-width: 850px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    h1, h2, h3 {
-      color: #fff;
-    }
-    h1 {
-      font-size: 2.2rem;
-    }
-    h2 {
-      font-size: 1.5rem;
-      margin-top: 2rem;
-    }
-    p, li {
-      font-size: 1rem;
-    }
-    .logos {
-      margin-top: 2rem;
-    }
-    .logos img {
-      height: 40px;
-      margin-right: 1rem;
-      vertical-align: middle;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-    a {
-      color: #8be9fd;
-      text-decoration: none;
-    }
-  </style>
+  <title>Miky Monti | Bio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Michele "Miky" Monti</h1>
-  <p>Imprenditore multidisciplinare con oltre 15 anni di esperienza nei settori della manifattura digitale, design industriale e sviluppo software. CEO e Creative Director di <strong>JUNO.AM</strong>, e Head of Products per <strong>ANY3DP.APP</strong> (3FESTO SRL).</p>
+  <div class="top-bar"></div>
+  
+  <div class="name-box">
+    <img 
+      src="/img/ChatGPT Image Jun 30, 2025, 01_39_09 PM.png" 
+      alt="Logo Miky Monti"
+    >
+  </div>
+
+  <p>
+    Imprenditore multidisciplinare con oltre 15 anni di esperienza nei settori della manifattura digitale, design industriale e sviluppo software. CEO e Creative Director di <strong>JUNO.AM</strong>, e Head of Products per <strong>ANY3DP.APP</strong> (3FESTO SRL).
+  </p>
 
   <h2>🏢 JUNO.AM</h2>
-  <p>Fondata a Dicembre 2012, JUNO.AM è ora tra le aziende italiane più competenti nella stampa 3D professionale.</p>
+  <p>
+    Fondata a Dicembre 2012, JUNO.AM è ora tra le aziende italiane più di rilievo nella stampa 3D professionale.
+  </p>
   <ul>
     <li>Miky ne è Co-fondatore, CEO e Direttore Creativo.</li>
     <li>Parco macchine: HP MJF, Carbon DLS, LPBF, FDM, PolyJet</li>
     <li>Reverse engineering con scanner laser fino a 0.05 mm di tolleranza</li>
-    <li>JUNO DESIGN SRL è controllata al 100% da Studio Pedrini SRL (Miky è socio al 6,5%)</li>
+    <li>JUNO DESIGN SRL è controllata al 100% dall'azienda di famiglia STUDIO PEDRINI SRL (Miky è socio al 6,5%)</li>
   </ul>
 
   <h2>📊 3FESTO SRL / ANY3DP.APP</h2>
-  <p>Software MES modulare con utiliti verticali 3D per additive manufacturing. Miky è Amministratore Unico, socio al 35%, e guida la roadmap del prodotto.</p>
+  <p>
+    Software MES modulare con utiliti verticali 3D per additive manufacturing. Miky è Amministratore Unico, socio al 35%, e guida la roadmap del prodotto.
+  </p>
   <ul>
     <li>Frontend: Next.js</li>
     <li>Backend: Laravel / Node.js</li>
     <li>DB: PostgreSQL / MySQL</li>
-    <li>Microservizi: AI, quoting, file parser, job tracking</li>
+    <li>Microservizi: predictions with AI, algoritmic quoting, 3D parsing, job tracking</li>
     <li>Installato attualmente presso JUNO.AM e BI-REX</li>
   </ul>
 
@@ -77,7 +49,7 @@
     <li>CAD: CREO Parametric, Fusion 360, SolidWorks, Rhino</li>
     <li>AM Tools: GrabCAD, Cura, Netfabb, Magics, Geomagic</li>
     <li>Dev: Next.js, Laravel, Node.js, Three.js, Docker, Git</li>
-    <li>AI: GPT APIs, Hugging Face, visione artificiale, prototipi hard-coded</li>
+    <li>AI: GPT APIs, Hugging Face, image vision, prototipi hard-coded</li>
   </ul>
 
   <h2>🌍 Visione</h2>
@@ -86,17 +58,28 @@
   </blockquote>
 
   <div class="logos">
-    <a href="https://juno.am" target="_blank">
-      <img src="https://juno.am/logo192.png" alt="JUNO logo">
-    </a>
-    <a href="https://any3dp.com" target="_blank">
-      <img src="https://any3dp.com/logo192.png" alt="ANY3DP logo">
-    </a>
+    <div class="logos-title">
+      I miei progetti principali e la mia attività personale:
+    </div>
+    <div class="logos-row">
+      <a class="logo-item" href="https://juno.am" target="_blank" title="JUNO.AM">
+        <img src="/img/logo-junoam.png" alt="JUNO logo">
+        <div class="logo-label">JUNO.AM</div>
+      </a>
+      <a class="logo-item" href="#" title="Freelance - P.IVA IT03456789012">
+        <img src="/img/ChatGPT Image Jun 30, 2025, 01_39_09 PM.png" alt="Logo personale Miky Monti">
+        <div class="logo-label logo-label-small">P.IVA (IT)03456789012</div>
+      </a>
+      <a class="logo-item" href="https://any3dp.com" target="_blank" title="ANY3DP.APP">
+        <img src="/img/logo-any3dp.png" alt="ANY3DP logo">
+        <div class="logo-label">ANY3DP</div>
+      </a>
+    </div>
   </div>
 
   <footer>
-    <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank">GitHub</a></p>
-    <p>&copy; 2025 Michele Monti</p>
+    <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank">GitHub</a> • <a href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank">LinkedIn</a></p>
+    <p>&copy; 2025 Michele Miky Monti + Co-Pilot</p>
   </footer>
 </body>
 </html>
