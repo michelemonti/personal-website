@@ -119,9 +119,11 @@ a {
   text-decoration: none;
   transition: color 0.2s;
 }
-a:hover {
+
+a:hover,
+a:focus {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: underline; 
 }
 blockquote {
   border-left: 4px solid #fff;
@@ -166,6 +168,76 @@ blockquote {
 }
 #bg3d {
   pointer-events: none;
+}
+.popup-animation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(30,30,30,0.97);
+  color: #fff;
+  font-size: 1.15rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #000a;
+  padding: 1.2rem 2rem;
+  margin: 2.5rem auto 0 auto;
+  max-width: 420px;
+  position: relative;
+  z-index: 10;
+  animation: popup-fadein 0.7s;
+}
+.popup-animation button {
+  background: #8faaff;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.popup-animation button:hover {
+  background: #fff;
+  color: #222;
+}
+.bottom-bar-animation {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(30,30,30,0.97);
+  color: #fff;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0.5rem;
+  z-index: 9999;
+  box-shadow: 0 -4px 32px #000a;
+  animation: popup-fadein 0.7s;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+.bottom-bar-animation button {
+  background: #8faaff;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.bottom-bar-animation button:hover {
+  background: #fff;
+  color: #222;
+}
+@keyframes popup-fadein {
+  from { opacity: 0; transform: translateY(40px);}
+  to   { opacity: 1; transform: translateY(0);}
 }
 @media (max-width: 600px) {
   body {
@@ -219,6 +291,3 @@ blockquote {
     font-size: 1.05rem;
   }
 }
-<script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-<body>
-  <div id="bg3d"></div>
