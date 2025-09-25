@@ -254,6 +254,8 @@ footer {
   font-size: 0.9rem;
   color: #aaa;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 a {
   color: #8be9fd;
@@ -466,6 +468,18 @@ blockquote:hover {
 }
 #bg3d {
   pointer-events: auto;
+}
+
+/* Reserve scroll space for the 3D bottom interaction zone */
+body::after {
+  content: "";
+  display: block;
+  height: 600px;
+}
+@media (max-width: 600px) {
+  body::after {
+    height: 400px;
+  }
 }
 .popup-animation {
   display: flex;

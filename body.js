@@ -295,45 +295,6 @@ window.addEventListener('resize', () => {
   updateMobileOffset(interactionEnabled);
 });
 
-function showControlsMessage() {
-  if (document.getElementById('controls-msg')) return;
-  
-  const controlsDiv = document.createElement('div');
-  controlsDiv.id = 'controls-msg';
-    controlsDiv.innerHTML = window.innerWidth > 700 ? 
-      `🎮 <strong>CONTROLLI DESKTOP:</strong><br>
-       • <strong>Drag</strong> = Orbit (pan/rotate)<br>
-       • <strong>Rotellina</strong> = Zoom<br>
-       • <strong>Doppio click</strong> = Reset vista` :
-      `\ud83d\udc49 <strong>CONTROLLI MOBILE:</strong><br>
-       \u2022 <strong>Inclina</strong> = Hover/tilt sopra l'icosaedro<br>
-       \u2022 <strong>Trascina</strong> = Orbit solo a fondo pagina<br>
-       \u2022 <strong>Doppio tap</strong> = Reset vista`;
-  controlsDiv.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    color: #50fa7b;
-    padding: 1rem;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    z-index: 9999;
-    max-width: 250px;
-    border: 1px solid #50fa7b;
-    backdrop-filter: blur(5px);
-  `;
-  
-  document.body.appendChild(controlsDiv);
-  
-  setTimeout(() => {
-    controlsDiv.style.opacity = '0';
-    controlsDiv.style.transition = 'opacity 0.5s';
-    setTimeout(() => controlsDiv.remove(), 500);
-  }, 5000);
-}
-
-let controlsShown = false;
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
@@ -344,10 +305,6 @@ window.addEventListener('scroll', () => {
   );
   const atBottom = scrollY + windowH >= docH - 400;
   interactionEnabled = atBottom;
-  if (!controlsShown && atBottom) {
-    controlsShown = true;
-    showControlsMessage();
-  }
   updateMobileOffset(atBottom);
 });
 
