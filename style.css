@@ -470,6 +470,59 @@ blockquote:hover {
   pointer-events: auto;
 }
 
+.lang-toggle {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10001;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 4px;
+  background: rgba(20,20,20,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 999px;
+  padding: 2px;
+  line-height: 1;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  backdrop-filter: blur(10px);
+}
+.lang-toggle button {
+  appearance: none;
+  background: transparent;
+  color: #eee;
+  border: none;
+  padding: 2px 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.lang-toggle button img {
+  display: block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+}
+.lang-toggle button.active,
+.lang-toggle button:hover {
+  background: linear-gradient(135deg, #8be9fd33, #50fa7b33);
+  color: #fff;
+}
+@media (max-width: 600px) {
+  .lang-toggle {
+    top: 8px;
+    padding: 1px 2px;
+    max-width: 96vw;
+    overflow: hidden;
+  }
+  .lang-toggle button {
+    padding: 1px 4px;
+    font-size: 0.85rem;
+  }
+}
+
 /* Reserve scroll space for the 3D bottom interaction zone */
 body::after {
   content: "";

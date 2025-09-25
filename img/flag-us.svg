@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1235" height="650" viewBox="0 0 7410 3900" role="img" aria-label="United States flag">
+  <rect width="7410" height="3900" fill="#b22234"/>
+  <path d="M0,450H7410v300H0zm0,600H7410v300H0zm0,600H7410v300H0zm0,600H7410v300H0zm0,600H7410v300H0zm0,600H7410v300H0" fill="#fff"/>
+  <rect width="2964" height="2100" fill="#3c3b6e"/>
+  <g fill="#fff">
+    <g id="s">
+      <g id="t">
+        <path d="M247,90l70.534,217.082H43.466L114,90l70.534,217.082H157.2z" transform="translate(-114,-90) scale(0.06)"/>
+      </g>
+      <use href="#t" x="247"/>
+      <use href="#t" x="494"/>
+      <use href="#t" x="741"/>
+      <use href="#t" x="988"/>
+      <use href="#t" x="1235"/>
+    </g>
+    <use href="#s" y="210"/>
+    <use href="#s" y="420"/>
+    <use href="#s" y="630"/>
+    <use href="#s" y="840"/>
+    <use href="#s" y="1050"/>
+    <use href="#s" y="1260"/>
+    <use href="#s" y="1470"/>
+    <use href="#s" y="1680"/>
+    <use href="#s" y="1890"/>
+  </g>
+</svg>

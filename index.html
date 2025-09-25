@@ -12,6 +12,29 @@
   <div id="bg3d"></div>
 
   <div class="top-bar"></div>
+  <div id="lang-toggle" class="lang-toggle" role="group" aria-label="Language selector">
+    <button data-lang="it" class="active" aria-label="Italiano">
+      <img src="/img/flag-it.svg" alt="IT" width="18" height="12" />
+    </button>
+    <button data-lang="en" aria-label="English (US)">
+      <img src="/img/flag-us.svg" alt="US" width="18" height="12" />
+    </button>
+    <button data-lang="es" aria-label="Español (AR)">
+      <img src="/img/flag-ar.svg" alt="AR" width="18" height="12" />
+    </button>
+    <button data-lang="ca" aria-label="Català (CAT)">
+      <img src="/img/flag-cat.svg" alt="CAT" width="18" height="12" />
+    </button>
+    <button data-lang="fr" aria-label="Français (FR)">
+      <img src="/img/flag-fr.svg" alt="FR" width="18" height="12" />
+    </button>
+    <button data-lang="sr" aria-label="Srpski (RS)">
+      <img src="/img/flag-rs.svg" alt="RS" width="18" height="12" />
+    </button>
+    <button data-lang="ru" aria-label="Русский (RU)">
+      <img src="/img/flag-ru.svg" alt="RU" width="18" height="12" />
+    </button>
+  </div>
   
   <div class="name-box">
     <img 
@@ -21,19 +44,19 @@
   </div>
 
   <p>
-    <span class="intro-text">
+    <span class="intro-text" data-i18n="intro">
       Imprenditore multidisciplinare con 15 anni di esperienza nei settori della manifattura digitale, design industriale e tecnologie emergenti. CEO / Creative Director di <strong class="highlight-text">JUNO.AM</strong>, e Head of Products per <strong class="highlight-text">ANY3DP.APP</strong>.
     </span>
   </p>
   <section class="section">
     <div class="section-header">
       <span class="section-icon" style="background:#fff;color:#111;">📖</span>
-      <h2>COMPETENZE</h2>
+  <h2 data-i18n="skills_h2">COMPETENZE</h2>
     </div>
     <ul>
       <li><strong><em>CAD:</em></strong> CREO Parametric, Fusion 360, SolidWorks, Shapr3D</li>
       <li><strong><em>AM Tools:</em></strong> GrabCAD, Cura, Netfabb, Magics, Geomagic</li>
-      <li><strong><em>Dev:</em></strong> Next.js, Laravel, Node.js, Three.js, Docker, Git</li>
+  <li><strong><em>Dev:</em></strong> Web full‑stack (TypeScript/JavaScript/PHP), architetture moderne (SPA/SSR/SSG), API REST, WebGL/3D, CI/CD, container e Git</li>
       <li><strong><em>AI:</em></strong> GPT APIs, Hugging Face, image vision, prototipi hard-coded</li>
       <li><strong><em>Business Admin:</em></strong> gestione a 360° di PMI, fiscalità e finanza italiana, budgeting, operations, strategia</li>
       <li><strong><em>Esperienza diretta:</em></strong> scale-up aziendali, fondazione e direzione, sviluppo di brand indipendenti</li>
@@ -47,7 +70,7 @@
       <span class="section-icon" style="background:#fff;color:#111;">🏢</span>
       <h2>JUNO.AM</h2>
     </div>
-    <p>
+    <p data-i18n="juno_p">
       Fondata a Dicembre 2012, JUNO.AM è ora tra le aziende italiane più di rilievo nella stampa 3D professionale. Offriamo servizi industriali.
     </p>
     <ul>
@@ -65,14 +88,14 @@
       <span class="section-icon" style="background:#fff;color:#111;">📊</span>
       <h2>3FESTO SRL / ANY3DP</h2>
     </div>
-    <p>
+    <p data-i18n="any3dp_p">
       Software MES modulare con utility verticali 3D per additive manufacturing. Guido la roadmap dei prodotti.
     </p>
     <ul>
       <li><strong><em>Ruolo:</em></strong> Amministratore Unico, Head of Products, Socio di Capitale.</li>
-      <li><strong><em>Frontend:</em></strong> Next.js/React per UI veloci e SEO‑friendly (SSR/SSG), componenti 3D in Three.js, cura di UX e Core Web Vitals.</li>
-      <li><strong><em>Backend:</em></strong> Scelti in modo pragmatico: API REST, servizi event‑driven, job/worker e sicurezza con attenzione a performance e manutenzione.</li>
-      <li><strong><em>Dati:</em></strong> PostgreSQL/MySQL con schema design, migrazioni, indici e tuning; cache Redis; storage di asset pesanti su S3; strategie di backup/replica quando serve.</li>
+  <li><strong><em>Frontend:</em></strong> stack web component‑based con SSR/SSG quando serve; cura di UX, accessibilità e performance (Core Web Vitals); 3D via WebGL quando utile.</li>
+  <li><strong><em>Backend:</em></strong> API e servizi scalabili (REST/event‑driven), code/worker, sicurezza e osservabilità; scelta dei framework pragmatica rispetto a vincoli e team.</li>
+  <li><strong><em>Dati:</em></strong> database relazionali con schema design/migrazioni/indici, cache in‑memory e object storage; politiche di backup/replica quando richieste.</li>
       <li><strong><em>Microservizi:</em></strong> predictions with AI, algoritmic quoting, 3D parsing, job tracking</li>
       <li><strong><em>Automazione:</em></strong> sistemi software e hardware per la gestione distribuita della stampa 3D e i suoi KPI.</li>
       <li><strong><em>Flussi:</em></strong> moduli intelligenti per stime, ottimizzazione processi e analisi predittive su dati reali.</li>
@@ -88,7 +111,7 @@
   <section class="section">
     <div class="section-header">
       <span class="section-icon" style="background:#fff;color:#111;">🌍</span>
-      <h2>Visione</h2>
+  <h2 data-i18n="vision_h2">Visione</h2>
     </div>
     <blockquote>
 “La manifattura non è solo produzione, è una forma di cultura: un gesto progettuale che connette umanità e automazione.
@@ -100,7 +123,7 @@ La manifattura digitale è cultura tangibile: è un atto umano che guarda al fut
   </section>
 
   <div class="logos">
-    <div class="logos-title">
+    <div class="logos-title" data-i18n="logos_title">
       LE MIE IMPRESE E LA MIA ATTIVITA PERSONALE:
     </div>
     <div class="logos-row">
@@ -120,7 +143,7 @@ La manifattura digitale è cultura tangibile: è un atto umano che guarda al fut
   </div>
 
   <div id="bottom-bar-animation" class="bottom-bar-animation">
-    <span>Trascina: orbit • Inclina: hover • Doppio tap: reset</span>
+    <span data-i18n="controls_bar">Trascina: orbit • Inclina: hover • Doppio tap: reset</span>
   </div>
 
   <footer>
