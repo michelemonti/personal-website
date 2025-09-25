@@ -300,12 +300,15 @@ function showControlsMessage() {
   
   const controlsDiv = document.createElement('div');
   controlsDiv.id = 'controls-msg';
-  controlsDiv.innerHTML = window.innerWidth > 700 ? 
-    `🎮 <strong>CONTROLLI DESKTOP:</strong><br>
-     • <strong>Drag</strong> = Orbit (pan/rotate)<br>
-     • <strong>Rotellina</strong> = Zoom<br>
-     • <strong>Doppio click</strong> = Reset vista` :
-     
+    controlsDiv.innerHTML = window.innerWidth > 700 ? 
+      `🎮 <strong>CONTROLLI DESKTOP:</strong><br>
+       • <strong>Drag</strong> = Orbit (pan/rotate)<br>
+       • <strong>Rotellina</strong> = Zoom<br>
+       • <strong>Doppio click</strong> = Reset vista` :
+      `\ud83d\udc49 <strong>CONTROLLI MOBILE:</strong><br>
+       \u2022 <strong>Inclina</strong> = Hover/tilt sopra l'icosaedro<br>
+       \u2022 <strong>Trascina</strong> = Orbit solo a fondo pagina<br>
+       \u2022 <strong>Doppio tap</strong> = Reset vista`;
   controlsDiv.style.cssText = `
     position: fixed;
     bottom: 20px;

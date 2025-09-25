@@ -541,6 +541,10 @@ blockquote:hover {
   body {
     padding: 1rem;
   }
+  .bottom-bar-animation {
+    display: flex;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
   .name-box {
     font-size: 1.2rem;
     padding: 0.8rem 0.5rem;
