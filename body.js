@@ -328,8 +328,8 @@ const i18n = {
   it: {
     intro: "Imprenditore multidisciplinare con 15 anni di esperienza nei settori della manifattura digitale, design industriale e tecnologie emergenti. CEO / Creative Director di <strong class=\"highlight-text\">JUNO.AM</strong>, e Head of Products per <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "COMPETENZE",
-    juno_p: "Fondata a Dicembre 2012, JUNO.AM è ora tra le aziende italiane più di rilievo nella stampa 3D professionale. Offriamo servizi industriali.",
-    any3dp_p: "Software MES modulare con utility verticali 3D per additive manufacturing. Guido la roadmap dei prodotti.",
+    business_h2: "BUSINESS",
+    business_p: "JUNO.AM (fondata nel 2012) e 3FESTO/ANY3DP: ecosistema integrato tra stampa 3D professionale e software MES modulare per l’additive. Guido strategia, prodotto e operatività end‑to‑end.",
     vision_h2: "Visione",
     logos_title: "LE MIE IMPRESE E LA MIA ATTIVITA PERSONALE:",
     controls_bar: "Trascina: orbit • Inclina: hover • Doppio tap: reset"
@@ -337,8 +337,8 @@ const i18n = {
   en: {
     intro: "Multidisciplinary entrepreneur with 15 years across digital manufacturing, industrial design and emerging tech. CEO / Creative Director at <strong class=\"highlight-text\">JUNO.AM</strong>, and Head of Products for <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "SKILLS",
-    juno_p: "Founded in December 2012, JUNO.AM is among Italy’s leading companies in professional 3D printing. We provide industrial services.",
-    any3dp_p: "Modular MES software with 3D vertical utilities for additive manufacturing. I lead the product roadmap.",
+    business_h2: "BUSINESS",
+    business_p: "JUNO.AM (founded in 2012) and 3FESTO/ANY3DP form an integrated ecosystem: professional 3D printing plus a modular MES for additive. I lead strategy, product, and end‑to‑end operations.",
     vision_h2: "Vision",
     logos_title: "MY COMPANIES AND PERSONAL ACTIVITY:",
     controls_bar: "Drag: orbit • Tilt: hover • Double tap: reset"
@@ -346,8 +346,8 @@ const i18n = {
   es: {
     intro: "Emprendedor multidisciplinario con 15 años de experiencia en fabricación digital, diseño industrial y tecnologías emergentes. CEO / Director Creativo en <strong class=\"highlight-text\">JUNO.AM</strong> y Head of Products en <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "COMPETENCIAS",
-  juno_p: "Fundada en diciembre de 2012, JUNO.AM es hoy una de las empresas italianas más destacadas en impresión 3D profesional. Ofrecemos servicios industriales.",
-    any3dp_p: "Software MES modular con utilidades 3D verticales para fabricación aditiva. Guío la hoja de ruta del producto.",
+    business_h2: "NEGOCIO",
+    business_p: "JUNO.AM (fundada en 2012) y 3FESTO/ANY3DP: ecosistema integrado entre impresión 3D profesional y un MES modular para aditiva. Lidero estrategia, producto y operaciones end‑to‑end.",
     vision_h2: "Visión",
     logos_title: "MIS EMPRESAS Y ACTIVIDAD PERSONAL:",
     controls_bar: "Arrastrar: órbita • Inclinar: hover • Doble toque: reset"
@@ -355,8 +355,8 @@ const i18n = {
   ca: {
     intro: "Emprenedor multidisciplinari amb 15 anys d’experiència en fabricació digital, disseny industrial i tecnologies emergents. CEO / Director Creatiu a <strong class=\"highlight-text\">JUNO.AM</strong>, i Head of Products a <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "COMPETÈNCIES",
-    juno_p: "Fundada el desembre de 2012, JUNO.AM és avui una de les empreses italianes més destacades en impressió 3D professional. Oferim serveis industrials.",
-    any3dp_p: "Programari MES modular amb utilitats 3D verticals per a fabricació additiva. Guio el full de ruta del producte.",
+    business_h2: "NEGOCI",
+    business_p: "JUNO.AM (fundada el 2012) i 3FESTO/ANY3DP: ecosistema integrat entre impressió 3D professional i MES modular per a l’additiva. Lidero estratègia, producte i operacions end‑to‑end.",
     vision_h2: "Visió",
     logos_title: "LES MEVES EMPRESES I ACTIVITAT PERSONAL:",
     controls_bar: "Arrossega: òrbita • Inclina: hover • Doble toc: reset"
@@ -364,8 +364,8 @@ const i18n = {
   fr: {
     intro: "Entrepreneur pluridisciplinaire avec 15 ans d’expérience en fabrication numérique, design industriel et technologies émergentes. CEO / Directeur Créatif chez <strong class=\"highlight-text\">JUNO.AM</strong> et Head of Products pour <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "COMPÉTENCES",
-    juno_p: "Fondée en décembre 2012, JUNO.AM est aujourd’hui l’une des entreprises italiennes les plus importantes dans l’impression 3D professionnelle. Nous fournissons des services industriels.",
-    any3dp_p: "Logiciel MES modulaire avec utilitaires 3D verticaux pour la fabrication additive. Je dirige la roadmap produit.",
+    business_h2: "BUSINESS",
+    business_p: "JUNO.AM (fondée en 2012) et 3FESTO/ANY3DP : un écosystème intégré entre impression 3D professionnelle et MES modulaire pour l’additif. Je dirige la stratégie, le produit et les opérations de bout en bout.",
     vision_h2: "Vision",
     logos_title: "MES ENTREPRISES ET MON ACTIVITÉ PERSONNELLE :",
     controls_bar: "Faites glisser : orbite • Inclinez : survol • Double tap : réinitialiser"
@@ -373,8 +373,8 @@ const i18n = {
   sr: {
     intro: "Multidisciplinarni preduzetnik sa 15 godina iskustva u digitalnoj proizvodnji, industrijskom dizajnu i novim tehnologijama. CEO / Kreativni direktor u <strong class=\"highlight-text\">JUNO.AM</strong> i Head of Products za <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "VEŠTINE",
-    juno_p: "Osnovana u decembru 2012, JUNO.AM je danas među najznačajnijim kompanijama u Italiji za profesionalnu 3D štampu. Pružamo industrijske usluge.",
-    any3dp_p: "Modularni MES softver sa vertikalnim 3D alatima za aditivnu proizvodnju. Vodim plan razvoja proizvoda.",
+    business_h2: "BIZNIS",
+    business_p: "JUNO.AM (osnovana 2012) i 3FESTO/ANY3DP: integrisani ekosistem profesionalne 3D štampe i modularnog MES softvera za aditivnu proizvodnju. Vodim strategiju, proizvod i end‑to‑end operacije.",
     vision_h2: "Vizija",
     logos_title: "MOJE KOMPANIJE I LIČNA AKTIVNOST:",
     controls_bar: "Prevuci: orbita • Nagnite: hover • Dvostruki dodir: reset"
@@ -382,8 +382,8 @@ const i18n = {
   ru: {
     intro: "Мультидисциплинарный предприниматель с 15‑летним опытом в цифровом производстве, промышленном дизайне и новых технологиях. CEO / Creative Director в <strong class=\"highlight-text\">JUNO.AM</strong> и Head of Products в <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
     skills_h2: "НАВЫКИ",
-    juno_p: "Основана в декабре 2012 года, JUNO.AM сегодня входит в число ведущих итальянских компаний в области профессиональной 3D‑печати. Мы предоставляем индустриальные услуги.",
-    any3dp_p: "Модульное MES‑ПО с вертикальными 3D‑утилитами для аддитивного производства. Руководю продуктовой дорожной картой.",
+    business_h2: "БИЗНЕС",
+    business_p: "JUNO.AM (основана в 2012) и 3FESTO/ANY3DP — интегрированная экосистема: профессиональная 3D‑печать плюс модульная MES‑платформа для аддитивного производства. Руководю стратегией, продуктом и операциями end‑to‑end.",
     vision_h2: "Видение",
     logos_title: "МОИ КОМПАНИИ И ЛИЧНАЯ ДЕЯТЕЛЬНОСТЬ:",
     controls_bar: "Перетаскивание: орбита • Наклон: hover • Двойной тап: сброс"
