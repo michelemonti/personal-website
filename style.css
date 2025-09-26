@@ -14,6 +14,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Background Gradient Animation */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   25% { background-position: 100% 50%; }
@@ -54,6 +55,8 @@ p, li {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Top Rainbow Bar */
 .top-bar {
   width: 100vw;
   position: fixed;
@@ -530,7 +533,7 @@ body::after {
 }
 @media (max-width: 600px) {
   body::after {
-    height: 400px;
+    height: 500px;
   }
 }
 .popup-animation {

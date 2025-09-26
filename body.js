@@ -332,7 +332,7 @@ const i18n = {
   business_teamco: "<strong><em>Team & Società:</em></strong> Designer, ingegneri e tecnici specializzati; JUNO DESIGN SRL controllata da STUDIO PEDRINI SRL; 3FESTO SRL; brand: JUNO.AM e ANY3DP.",
     
     // Vision
-    vision_quote: "La manifattura non è solo produzione, è una forma di cultura: un gesto progettuale che connette umanità e automazione.<br>È l'incontro tra la sensibilità umana e la precisione digitale, tra l’intuizione di chi progetta e la logica di chi automatizza.<br>Nella stampa 3D, ho trovato molto più di una tecnologia: un linguaggio espressivo capace di trasformare sogni in oggetti, idee in impatti reali, layer dopo layer.<br>Ogni pezzo stampato è una testimonianza di visione, resilienza e innovazione.<br>Fabbricare oggi significa ridisegnare la supply chain, democratizzare l’accesso alla creazione e restituire centralità al pensiero progettuale.<br>La manifattura digitale è cultura tangibile: è un atto umano che guarda al futuro, senza dimenticare le radici di chi ha imparato costruendo.",
+    vision_quote: "La manifattura digitale è cultura: un ponte tra intuizione umana, automazione e software. La stampa 3D non è solo tecnologia, ma linguaggio che trasforma idee in oggetti e processi. Ogni pezzo stampato racconta visione e innovazione, grazie a strumenti digitali e software che abilitano nuove forme di creazione. Fabbricare oggi significa progettare il futuro, integrando pensiero, codice e materia.",
     // Misc
     vat_label: "P.IVA (IT)03456789012"
   },
@@ -363,7 +363,7 @@ const i18n = {
   business_teamco: "<strong><em>Team & Company:</em></strong> Designers, engineers and specialized technicians; JUNO DESIGN SRL controlled by STUDIO PEDRINI SRL; 3FESTO SRL; brands: JUNO.AM and ANY3DP.",
     
     // Vision
-    vision_quote: "Manufacturing is not just production; it's a form of culture: a design act that connects humanity and automation.<br>It’s the encounter between human sensitivity and digital precision, between the intuition of the designer and the logic of the automator.<br>In 3D printing I found much more than a technology: an expressive language capable of turning dreams into objects, ideas into real impact, layer after layer.<br>Every printed piece is a testament to vision, resilience, and innovation.<br>To manufacture today means redesigning the supply chain, democratizing access to creation, and bringing design thinking back to the center.<br>Digital manufacturing is tangible culture: a human act that looks to the future without forgetting the roots of those who learned by building.",
+    vision_quote: "Digital manufacturing is culture: a bridge between human intuition, automation, and software. 3D printing is not just technology, but a language that transforms ideas into objects and processes. Every printed piece tells a story of vision and innovation, thanks to digital tools and software that enable new forms of creation. Manufacturing today means designing the future, integrating thought, code, and matter.",
     // Misc
     vat_label: "VAT (IT)03456789012"
   },
@@ -394,7 +394,7 @@ const i18n = {
   business_teamco: "<strong><em>Equipo y Sociedad:</em></strong> Diseñadores, ingenieros y técnicos especializados; JUNO DESIGN SRL controlada por STUDIO PEDRINI SRL; 3FESTO SRL; marcas: JUNO.AM y ANY3DP.",
     
     // Vision
-    vision_quote: "La manufactura no es solo producción; es una forma de cultura: un gesto de diseño que conecta humanidad y automatización.<br>Es el encuentro entre la sensibilidad humana y la precisión digital, entre la intuición de quien diseña y la lógica de quien automatiza.<br>En la impresión 3D encontré mucho más que una tecnología: un lenguaje expresivo capaz de transformar sueños en objetos, ideas en impacto real, capa tras capa.<br>Cada pieza impresa es testimonio de visión, resiliencia e innovación.<br>Fabricar hoy significa rediseñar la cadena de suministro, democratizar el acceso a la creación y devolver centralidad al pensamiento de diseño.<br>La manufactura digital es cultura tangible: un acto humano que mira al futuro sin olvidar las raíces de quienes aprendieron construyendo.",
+    vision_quote: "La manufactura digital es cultura: un puente entre la intuición humana, la automatización y el software. La impresión 3D no es solo tecnología, sino un lenguaje que transforma ideas en objetos y procesos. Cada pieza impresa cuenta una historia de visión e innovación, gracias a herramientas digitales y software que habilitan nuevas formas de creación. Fabricar hoy significa diseñar el futuro, integrando pensamiento, código y materia.",
     // Misc
     vat_label: "IVA (IT)03456789012"
   },
@@ -425,7 +425,7 @@ const i18n = {
   business_teamco: "<strong><em>Equip i Societat:</em></strong> Dissenyadors, enginyers i tècnics especialitzats; JUNO DESIGN SRL controlada per STUDIO PEDRINI SRL; 3FESTO SRL; marques: JUNO.AM i ANY3DP.",
     
     // Vision
-    vision_quote: "La manufactura no és només producció; és una forma de cultura: un gest de disseny que connecta humanitat i automatització.<br>És la trobada entre la sensibilitat humana i la precisió digital, entre la intuïció de qui dissenya i la lògica de qui automatitza.<br>En la impressió 3D he trobat molt més que una tecnologia: un llenguatge expressiu capaç de convertir somnis en objectes, idees en impacte real, capa rere capa.<br>Cada peça impresa és un testimoni de visió, resiliència i innovació.<br>Fabricar avui significa redissenyar la cadena de subministrament, democratitzar l’accés a la creació i retornar centralitat al pensament de disseny.<br>La manufactura digital és cultura tangible: un acte humà que mira cap al futur sense oblidar les arrels de qui ha après construint.",
+    vision_quote: "La manufactura digital és cultura: un pont entre la intuïció humana, l'automatització i el programari. La impressió 3D no és només tecnologia, sinó un llenguatge que transforma idees en objectes i processos. Cada peça impresa explica una història de visió i innovació, gràcies a eines digitals i programari que habiliten noves formes de creació. Fabricar avui significa dissenyar el futur, integrant pensament, codi i matèria.",
     // Misc
     vat_label: "IVA (IT)03456789012"
   },
@@ -456,7 +456,7 @@ const i18n = {
   business_teamco: "<strong><em>Équipe & Société :</em></strong> Designers, ingénieurs et techniciens spécialisés ; JUNO DESIGN SRL contrôlée par STUDIO PEDRINI SRL ; 3FESTO SRL ; marques : JUNO.AM et ANY3DP.",
     
     // Vision
-    vision_quote: "La fabrication n’est pas seulement de la production ; c’est une forme de culture : un geste de conception qui relie l’humanité et l’automatisation.<br>C’est la rencontre entre la sensibilité humaine et la précision numérique, entre l’intuition de celui qui conçoit et la logique de celui qui automatise.<br>Dans l’impression 3D, j’ai trouvé bien plus qu’une technologie : un langage expressif capable de transformer des rêves en objets, des idées en impacts réels, couche après couche.<br>Chaque pièce imprimée témoigne de vision, de résilience et d’innovation.<br>Fabriquer aujourd’hui, c’est redessiner la chaîne d’approvisionnement, démocratiser l’accès à la création et redonner au design sa centralité.<br>La fabrication numérique est une culture tangible : un acte humain tourné vers l’avenir, sans oublier les racines de ceux qui ont appris en construisant.",
+    vision_quote: "La fabrication numérique est culture : un pont entre l'intuition humaine, l'automatisation et le logiciel. L'impression 3D n'est pas seulement une technologie, mais un langage qui transforme les idées en objets et processus. Chaque pièce imprimée raconte une histoire de vision et d'innovation, grâce à des outils numériques et des logiciels qui permettent de nouvelles formes de création. Fabriquer aujourd'hui signifie concevoir l'avenir, en intégrant pensée, code et matière.",
     // Misc
     vat_label: "TVA (IT)03456789012"
   },
@@ -487,7 +487,7 @@ const i18n = {
   business_teamco: "<strong><em>Tim i Društvo:</em></strong> Dizajneri, inženjeri i specijalizovani tehničari; JUNO DESIGN SRL pod kontrolom STUDIO PEDRINI SRL; 3FESTO SRL; brendovi: JUNO.AM i ANY3DP.",
     
     // Vision
-    vision_quote: "Proizvodnja nije samo proizvod; to je oblik kulture: dizajnerski gest koji povezuje humanost i automatizaciju.<br>To je susret ljudske osetljivosti i digitalne preciznosti, između intuicije onoga ko projektuje i logike onoga ko automatizuje.<br>U 3D štampi pronašao sam mnogo više od tehnologije: izražajni jezik koji pretvara snove u objekte, ideje u stvarni uticaj, sloj po sloj.<br>Svaki odštampani deo je svedočanstvo vizije, otpornosti i inovacije.<br>Proizvoditi danas znači redizajnirati lanac snabdevanja, demokratizovati pristup kreaciji i vratiti centralnost dizajnerskom razmišljanju.<br>Digitalna proizvodnja je opipljiva kultura: ljudski čin okrenut budućnosti, ne zaboravljajući korene onih koji su učili gradeći.",
+    vision_quote: "Digitalna proizvodnja je kultura: most između ljudske intuicije, automatizacije i softvera. 3D štampa nije samo tehnologija, već jezik koji pretvara ideje u objekte i procese. Svaki odštampani deo priča priču o viziji i inovaciji, zahvaljujući digitalnim alatima i softverima koji omogućavaju nove forme stvaranja. Proizvoditi danas znači dizajnirati budućnost, integrirajući misao, kod i materiju.",
     // Misc
     vat_label: "PDV (IT)03456789012"
   },
@@ -518,7 +518,7 @@ const i18n = {
   business_teamco: "<strong><em>Команда и компания:</em></strong> Дизайнеры, инженеры и профильные техники; JUNO DESIGN SRL под управлением STUDIO PEDRINI SRL; 3FESTO SRL; бренды: JUNO.AM и ANY3DP.",
     
     // Vision
-    vision_quote: "Производство — это не просто выпуск продукции; это форма культуры: проектный жест, соединяющий человечность и автоматизацию.<br>Это встреча человеческой чувствительности и цифровой точности, интуиции проектировщика и логики автоматизатора.<br>В 3D‑печати я нашёл гораздо больше, чем технологию: выразительный язык, способный превращать мечты в объекты, идеи — в реальный эффект, слой за слоем.<br>Каждая напечатанная деталь — свидетельство видения, устойчивости и инноваций.<br>Производить сегодня — значит переосмысливать цепочку поставок, демократизировать доступ к созданию и возвращать центральность проектному мышлению.<br>Цифровое производство — осязаемая культура: человеческий акт, устремлённый в будущее, не забывающий корни тех, кто учился, создавая.",
+    vision_quote: "Цифровое производство — культура: мост между человеческой интуицией, автоматизацией и программным обеспечением. 3D-печать — это не просто технология, а язык, преобразующий идеи в объекты и процессы. Каждая напечатанная деталь рассказывает историю видения и инноваций, благодаря цифровым инструментам и программному обеспечению, которые позволяют новые формы творчества. Производить сегодня значит проектировать будущее, интегрируя мысль, код и материю.",
     // Misc
     vat_label: "НДС (IT)03456789012"
   }

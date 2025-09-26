@@ -36,5 +36,5 @@ No server or build process required—just edit the files and refresh.
 - LinkedIn: [linkedin.com/in/michele-monti-96589761](https://www.linkedin.com/in/michele-monti-96589761/)
 - GitHub: [github.com/michelemonti](https://github.com/michelemonti)
 
-© 2025 Michele Miky Monti</content>
+© 2025 Michele Monti
 <parameter name="filePath">/home/michele/michelemonti.me/personal-website/README.md
