@@ -77,6 +77,7 @@ let theta = 0.8;
 let phi = 1.1;
 let radius = 30;
 let targetY = 0;
+let targetRotationY = 0;
 
 function updateCameraFromSpherical() {
   const sinPhi = Math.sin(phi);
@@ -99,11 +100,7 @@ function updateMobileOffset(atBottom) {
 document.addEventListener('click', (e) => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
-  const docH = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
+  const docH = document.documentElement.scrollHeight;
   if (scrollY + windowH >= docH - 400) {
     mesh.material.color.setHex(0x50fa7b);
     if (mesh.material.emissive) mesh.material.emissive.setHex(0x001a00);
@@ -170,11 +167,7 @@ if (window.DeviceOrientationEvent) {
     if (window.innerWidth < 700) {
       const scrollY = window.scrollY || window.pageYOffset;
       const windowH = window.innerHeight;
-      const docH = Math.max(
-        document.body.scrollHeight, document.documentElement.scrollHeight,
-        document.body.offsetHeight, document.documentElement.offsetHeight,
-        document.body.clientHeight, document.documentElement.clientHeight
-      );
+      const docH = document.documentElement.scrollHeight;
       
       if (scrollY + windowH < docH - 400) {
         mouseX = (event.gamma || 0) / 45;
@@ -194,11 +187,7 @@ document.addEventListener('touchstart', (e) => {
   const touch = e.touches[0];
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
-  const docH = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
+  const docH = document.documentElement.scrollHeight;
   if (window.innerWidth < 700 && scrollY + windowH >= docH - 400) {
     touchDragging = true;
     lastTouchX = touch.clientX;
@@ -267,19 +256,16 @@ function animate() {
   particles.rotation.y += 0.002;
   
   if (interactionEnabled) {
-    if (!dragging && !touchDragging) {
-      mesh.rotation.y += 0.0006;
-    }
+    targetRotationY = 0;
   } else {
-    const targetRotationX = mouseY * 0.5;
-    const targetRotationY = mouseX * 0.5;
-    mesh.rotation.x += (targetRotationX - mesh.rotation.x) * 0.05;
-    mesh.rotation.y += (targetRotationY - mesh.rotation.y) * 0.05;
-    mesh.rotation.z += 0.0045;
-    if (window.innerWidth < 700) {
-      mesh.position.set(0, 0, 0);
-      mesh.scale.set(1, 1, 1);
-    }
+    targetRotationY = mouseX * 0.5;
+  }
+  mesh.rotation.y += (targetRotationY - mesh.rotation.y) * 0.05;
+  mesh.rotation.x += (mouseY * 0.5 - mesh.rotation.x) * 0.05;
+  mesh.rotation.z += 0.0045;
+  if (window.innerWidth < 700) {
+    mesh.position.set(0, 0, 0);
+    mesh.scale.set(1, 1, 1);
   }
   
   renderer.render(scene, camera);
@@ -296,11 +282,7 @@ window.addEventListener('resize', () => {
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
-  const docH = Math.max(
-    document.body.scrollHeight, document.documentElement.scrollHeight,
-    document.body.offsetHeight, document.documentElement.offsetHeight,
-    document.body.clientHeight, document.documentElement.clientHeight
-  );
+  const docH = document.documentElement.scrollHeight;
   const atBottom = scrollY + windowH >= docH - 400;
   interactionEnabled = atBottom;
   updateMobileOffset(atBottom);
@@ -343,8 +325,8 @@ const i18n = {
     business_roles: "<strong><em>Ruoli:</em></strong> Co‑founder/CEO & Creative Director (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
     business_core: "<strong><em>Core:</em></strong> Stampa 3D professionale + piattaforma MES modulare a supporto dell’intero ciclo AM.",
     business_tech: "<strong><em>Tecnologie 3DP:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototipazione, serie, parti funzionali).",
-    business_services: "<strong><em>Servizi:</em></strong> DfAM e ottimizzazione topologica, prototipazione/produzione, reverse engineering (scanner fino a 0,05 mm).",
-    business_software: "<strong><em>Software:</em></strong> Frontend component‑based (SSR/SSG, WebGL/3D); Backend REST/event‑driven con queue/worker e observability; dati relazionali + cache + object storage.",
+    business_services: "<strong><em>Servizi CAD:</em></strong> DfAM e ottimizzazione topologica, prototipazione/produzione, reverse engineering (scanner fino a 0,05 mm).",
+    business_software: "<strong><em>Software:</em></strong> Frontend moderni; Backend REST/event‑driven con queue/worker e observability; dati relazionali + cache + object storage.",
     business_microservices: "<strong><em>Microservizi:</em></strong> AI predictions, algoritmic quoting, 3D parsing, job tracking; engine mesh C++, Three.js experience; API documentate per integrazioni.",
     business_ops: "<strong><em>Operatività:</em></strong> Automazione software/hardware per gestione distribuita della stampa 3D e KPI.",
   business_teamco: "<strong><em>Team & Società:</em></strong> Designer, ingegneri e tecnici specializzati; JUNO DESIGN SRL controllata da STUDIO PEDRINI SRL; 3FESTO SRL; brand: JUNO.AM e ANY3DP.",
@@ -374,7 +356,7 @@ const i18n = {
     business_roles: "<strong><em>Roles:</em></strong> Co‑founder/CEO & Creative Director (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
     business_core: "<strong><em>Core:</em></strong> Professional 3D printing + modular MES platform supporting the full AM lifecycle.",
     business_tech: "<strong><em>3DP Technologies:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototyping, series, functional parts).",
-    business_services: "<strong><em>Services:</em></strong> DfAM and topology optimization, prototyping/production, reverse engineering (scanning up to 0.05 mm).",
+    business_services: "<strong><em>CAD Services:</em></strong> DfAM and topology optimization, prototyping/production, reverse engineering (scanning up to 0.05 mm).",
     business_software: "<strong><em>Software:</em></strong> Component‑based frontend (SSR/SSG, WebGL/3D); REST/event‑driven backend with queues/workers and observability; relational data + cache + object storage.",
     business_microservices: "<strong><em>Microservices:</em></strong> AI predictions, algorithmic quoting, 3D parsing, job tracking; mesh engine in C++, Three.js experiences; documented APIs for integrations.",
     business_ops: "<strong><em>Operations:</em></strong> Software/hardware automation for distributed 3D printing management and KPIs.",
