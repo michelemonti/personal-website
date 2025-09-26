@@ -1,0 +1,6 @@
+# Sitemap for michelemonti.me
+
+User-agent: *
+Allow: /
+
+Sitemap: https://michelemonti.me/sitemap.xml
