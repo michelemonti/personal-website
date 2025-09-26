@@ -570,10 +570,12 @@ body::after {
 }
 /* removed bottom 3D control hints */
 @media (max-width: 600px) {
-  html {
+  html, body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%) !important;
-    background-size: 400% 400%;
+    background-size: 400% 400% !important;
+    background-attachment: fixed !important;
     animation: gradientShift 20s ease infinite;
+    min-height: 100vh !important;
   }
   body {
     padding: 1rem;
