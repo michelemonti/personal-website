@@ -1,16 +1,24 @@
 const bgDiv = document.getElementById('bg3d');
 Object.assign(bgDiv.style, {
   position: 'fixed',
-  zIndex: '-1',
+  zIndex: '0',
   top: 0, left: 0, width: '100vw', height: '100vh',
   overflow: 'hidden'
 });
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
-const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+const renderer = new THREE.WebGLRenderer({ 
+  alpha: true, 
+  antialias: true,
+  powerPreference: "high-performance"
+});
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.domElement.style.pointerEvents = 'auto';
+renderer.domElement.style.display = 'block';
+renderer.domElement.style.position = 'absolute';
+renderer.domElement.style.top = '0';
+renderer.domElement.style.left = '0';
 bgDiv.appendChild(renderer.domElement);
 
 const particleCount = 200;
@@ -277,6 +285,8 @@ window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.domElement.style.width = window.innerWidth + 'px';
+  renderer.domElement.style.height = window.innerHeight + 'px';
   updateCameraFromSpherical();
   updateMobileOffset(interactionEnabled);
 });
@@ -566,3 +576,16 @@ if (document.readyState === 'loading') {
 animate();
 
 updateMobileOffset(false);
+
+// Debug per mobile
+if (window.innerWidth < 700) {
+  console.log('Mobile detected, Three.js setup:', {
+    scene: !!scene,
+    camera: !!camera, 
+    renderer: !!renderer,
+    mesh: !!mesh,
+    particles: !!particles,
+    canvasWidth: renderer.domElement.width,
+    canvasHeight: renderer.domElement.height
+  });
+}

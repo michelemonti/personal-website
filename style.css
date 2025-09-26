@@ -571,23 +571,18 @@ body::after {
 /* removed bottom 3D control hints */
 @media (max-width: 600px) {
   html {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%) !important;
-    background-size: 400% 400% !important;
-    animation: gradientShift 20s ease infinite;
+    background: transparent !important;
     min-height: 100vh !important;
   }
   body {
     background: transparent !important;
     padding: 1rem;
+    position: relative;
+    z-index: 1;
   }
-  #bg3d {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: -1 !important;
-    pointer-events: auto;
+  .name-box, .section, .logos, footer, .lang-toggle, .top-bar {
+    position: relative;
+    z-index: 2;
   }
   /* bottom hints removed */
   .name-box {
