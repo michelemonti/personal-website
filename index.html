@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
   <meta name="description" content="Michele Monti - Multidisciplinary entrepreneur with 15 years in digital manufacturing, industrial design and emerging technologies. CEO at JUNO.AM and Head of Products at ANY3DP.">
   <meta name="keywords" content="Michele Monti, digital manufacturing, 3D printing, industrial design, entrepreneur, JUNO.AM, ANY3DP">
   <meta name="author" content="Michele Monti">
@@ -14,9 +15,13 @@
   <meta name="twitter:title" content="Michele Monti | Digital Manufacturing Entrepreneur">
   <meta name="twitter:description" content="Multidisciplinary entrepreneur with 15 years in digital manufacturing, industrial design and emerging technologies.">
   <title>Michele Monti | Digital Manufacturing Entrepreneur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/exo/v20/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="/img/logo-miky.png">
+  <link rel="preload" as="image" href="/img/michele-monti-logo.png" imagesrcset="/img/michele-monti-logo.png 1x" fetchpriority="high">
 </head>
 <body>
   <div id="bg3d"></div>
@@ -46,23 +51,27 @@
     </button>
   </div>
   
-  <div class="name-box">
+  <header class="header-logo">
     <img 
       src="/img/michele-monti-logo.png" 
       alt="Michele Monti Professional Logo"
-      width="320"
-      height="auto"
+      class="main-logo"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
     >
-  </div>
+  </header>
 
-  <p>
-    <span class="intro-text" data-i18n="intro">
-      Imprenditore multidisciplinare con 15 anni di esperienza nei settori della manifattura digitale, design industriale e tecnologie emergenti. CEO / Creative Director di <strong class="highlight-text">JUNO.AM</strong>, e Head of Products per <strong class="highlight-text">ANY3DP.APP</strong>.
-    </span>
-  </p>
+  <div class="intro-wrapper">
+    <p>
+      <span class="intro-text" data-i18n="intro">
+        Imprenditore multidisciplinare con 15 anni di esperienza nei settori della manifattura digitale, design industriale e tecnologie emergenti. CEO / Creative Director di <strong class="highlight-text">JUNO.AM</strong>, e Head of Products per <strong class="highlight-text">ANY3DP.APP</strong>.
+      </span>
+    </p>
+  </div>
   <section class="section">
     <div class="section-header">
-      <span class="section-icon" style="background:#fff;color:#111;">📖</span>
+    <span class="section-icon section-icon--light">📖</span>
   <h2 data-i18n="skills_h2">COMPETENZE</h2>
     </div>
     <ul>
@@ -79,7 +88,7 @@
 
   <section class="section">
     <div class="section-header">
-      <span class="section-icon" style="background:#fff;color:#111;">🏢</span>
+  <span class="section-icon section-icon--light">🏢</span>
       <h2 data-i18n="business_h2">BUSINESS</h2>
     </div>
     <p data-i18n="business_p">JUNO.AM (fondata nel 2012) e 3FESTO/ANY3DP: ecosistema integrato tra stampa 3D professionale e software MES modulare per l’additive. Guido strategia, prodotto e operatività end‑to‑end.</p>
@@ -99,7 +108,7 @@
 
   <section class="section">
     <div class="section-header">
-      <span class="section-icon" style="background:#fff;color:#111;">🌍</span>
+    <span class="section-icon section-icon--light">🌍</span>
   <h2 data-i18n="vision_h2">Visione</h2>
     </div>
   <blockquote data-i18n="vision_quote">
@@ -112,16 +121,16 @@
       LE MIE IMPRESE E LA MIA ATTIVITA PERSONALE:
     </div>
     <div class="logos-row">
-      <a class="logo-item" href="https://juno.am" target="_blank" rel="noopener" title="JUNO.AM">
-        <img src="/img/logo-junoam.png" alt="JUNO.AM Company Logo" width="90" height="80">
+  <a class="logo-item" href="https://juno.am" target="_blank" rel="noopener noreferrer" title="JUNO.AM">
+        <img src="/img/logo-junoam.png" alt="JUNO.AM Company Logo" width="90" height="80" loading="lazy" decoding="async">
         <div class="logo-label">JUNO.AM</div>
       </a>
-      <a class="logo-item" href="#" title="Freelance Services">
-        <img src="/img/logo-miky.png" alt="Michele Monti Personal Brand Logo" width="90" height="80">
+      <div class="logo-item" title="Freelance Services">
+        <img src="/img/logo-miky.png" alt="Michele Miky Monti Personal Brand Logo" width="90" height="80" loading="lazy" decoding="async">
         <div class="logo-label logo-label-small" data-i18n="vat_label">P.IVA (IT)03456789012</div>
-      </a>
-      <a class="logo-item" href="https://any3dp.com" target="_blank" rel="noopener" title="ANY3DP.APP">
-        <img src="/img/logo-any3dp.png" alt="ANY3DP Platform Logo" width="90" height="80">
+      </div>
+  <a class="logo-item" href="https://any3dp.com" target="_blank" rel="noopener noreferrer" title="ANY3DP.APP">
+        <img src="/img/logo-any3dp.png" alt="ANY3DP Platform Logo" width="90" height="80" loading="lazy" decoding="async">
         <div class="logo-label">ANY3DP</div>
       </a>
     </div>
@@ -130,8 +139,8 @@
   
 
   <footer>
-    <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank" rel="noopener">GitHub</a> • <a href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank" rel="noopener">LinkedIn</a></p>
-    <p>&copy; 2025 Michele Monti + Copilot</p>
+  <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank" rel="noopener noreferrer">GitHub</a> • <a href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    <p>&copy; 2025 Michele Miky Monti + Copilot</p>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
