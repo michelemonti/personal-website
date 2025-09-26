@@ -573,12 +573,20 @@ body::after {
   html, body {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 25%, #16213e 50%, #1a1a2e 75%, #0a0a0a 100%) !important;
     background-size: 400% 400% !important;
-    background-attachment: fixed !important;
     animation: gradientShift 20s ease infinite;
     min-height: 100vh !important;
   }
   body {
     padding: 1rem;
+  }
+  #bg3d {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: -1 !important;
+    pointer-events: auto;
   }
   /* bottom hints removed */
   .name-box {

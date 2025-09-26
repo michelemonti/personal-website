@@ -265,6 +265,8 @@ function animate() {
   mesh.rotation.z += 0.0045;
   if (window.innerWidth < 700) {
     mesh.position.set(0, 0, 0);
+    mesh.scale.set(0.8, 0.8, 0.8); // Scala ridotta ma visibile su mobile
+  } else {
     mesh.scale.set(1, 1, 1);
   }
   
