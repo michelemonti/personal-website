@@ -15,7 +15,6 @@ body {
   width: 100%;
 }
 
-/* Background Gradient Animation */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   25% { background-position: 100% 50%; }
@@ -57,7 +56,6 @@ p, li {
   -webkit-text-fill-color: transparent;
 }
 
-/* Top Rainbow Bar */
 .top-bar {
   width: 100vw;
   position: fixed;
@@ -452,84 +450,6 @@ blockquote:hover {
   pointer-events: auto;
 }
 
-.lang-toggle {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10001;
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 4px;
-  background: rgba(20,20,20,0.55);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 999px;
-  padding: 2px;
-  line-height: 1;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-  backdrop-filter: blur(10px);
-}
-.lang-toggle button {
-  appearance: none;
-  background: transparent;
-  color: #eee;
-  border: none;
-  padding: 2px 6px;
-  font-weight: 700;
-  font-size: 0.95rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.lang-toggle button img {
-  display: block;
-  width: 18px;
-  height: 12px;
-  border-radius: 2px;
-}
-.lang-toggle button.active,
-.lang-toggle button:hover {
-  background: linear-gradient(135deg, #8be9fd33, #50fa7b33);
-  color: #fff;
-}
-@media (max-width: 600px) {
-  .lang-toggle {
-    top: 8px;
-    padding: 2px 3px;
-    max-width: 95vw;
-    overflow: hidden;
-    left: 50% !important;
-    right: auto !important;
-    transform: translateX(-50%) !important;
-    position: fixed !important;
-    justify-content: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .lang-toggle button {
-    padding: 2px 5px;
-    font-size: 0.85rem;
-    min-width: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-/* Per dispositivi molto piccoli (iPhone SE, ecc.) */
-@media (max-width: 375px) {
-  .lang-toggle {
-    max-width: 92vw;
-    padding: 1px 2px;
-    gap: 2px;
-  }
-  .lang-toggle button {
-    padding: 1px 3px;
-    font-size: 0.8rem;
-    min-width: 20px;
-  }
-}
-
 body::after {
   content: "";
   display: block;
@@ -537,7 +457,7 @@ body::after {
 }
 @media (max-width: 600px) {
   body::after {
-    height: 700px; /* Più spazio su mobile per l'icosaedro */
+    height: 500px;
   }
 }
 .popup-animation {
@@ -572,7 +492,6 @@ body::after {
   background: #fff;
   color: #222;
 }
-/* removed bottom 3D control hints */
 @media (max-width: 600px) {
   html {
     background: transparent !important;
@@ -653,7 +572,6 @@ body::after {
   .intro-wrapper:hover {
     transform: translateY(-3px) scale(1.01) !important;
   }
-  /* bottom hints removed */
   .header-logo {
     margin: 1rem 0;
     width: 100%;
@@ -891,4 +809,87 @@ body::after {
 @keyframes borderGlow {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
+}
+
+.lang-toggle {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10000 !important;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  padding: 8px;
+  border-radius: 12px;
+  border: 1px solid rgba(139, 233, 253, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.lang-toggle button {
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.lang-toggle button:hover {
+  background: rgba(139, 233, 253, 0.1);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.lang-toggle button.active {
+  background: rgba(139, 233, 253, 0.2);
+  opacity: 1;
+  box-shadow: 0 0 8px rgba(139, 233, 253, 0.4);
+}
+
+.lang-toggle button img {
+  display: block;
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .lang-toggle {
+    top: 15px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    gap: 6px;
+    padding: 6px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .lang-toggle button {
+    padding: 4px 5px;
+  }
+  
+  .lang-toggle button img {
+    width: 20px;
+    height: 14px;
+  }
+}
+
+@media (max-width: 375px) {
+  .lang-toggle {
+    top: 10px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    gap: 4px;
+    padding: 5px 7px;
+  }
+  
+  .lang-toggle button img {
+    width: 18px;
+    height: 12px;
+  }
 }

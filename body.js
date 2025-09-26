@@ -112,8 +112,9 @@ function updateCameraFromSpherical() {
 
 function updateMobileOffset(atBottom) {
   if (window.innerWidth < 700 && atBottom) {
-    targetY = 0;
-    camera.lookAt(0, 0, 0);
+    const windowH = window.innerHeight;
+    targetY = windowH * 0.15;
+    camera.lookAt(0, targetY, 0);
   } else {
     targetY = 0;
     updateCameraFromSpherical();
@@ -124,7 +125,7 @@ document.addEventListener('click', (e) => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
   const docH = document.documentElement.scrollHeight;
-  if (scrollY + windowH >= docH - 600) {
+  if (scrollY + windowH >= docH - 400) {
     mesh.material.color.setHex(0x50fa7b);
     if (mesh.material.emissive) mesh.material.emissive.setHex(0x001a00);
     setTimeout(() => {
@@ -211,7 +212,7 @@ document.addEventListener('touchstart', (e) => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
   const docH = document.documentElement.scrollHeight;
-  if (window.innerWidth < 700 && scrollY + windowH >= docH - 600) {
+  if (window.innerWidth < 700 && scrollY + windowH >= docH - 400) {
     touchDragging = true;
     lastTouchX = touch.clientX;
     lastTouchY = touch.clientY;
@@ -242,8 +243,8 @@ document.addEventListener('touchmove', (e) => {
   const deltaY = touch.clientY - lastTouchY;
   lastTouchX = touch.clientX;
   lastTouchY = touch.clientY;
-  theta -= deltaX * 0.0045;
-  phi   -= deltaY * 0.0045;
+  theta -= deltaX * 0.008;
+  phi   -= deltaY * 0.008;
   const EPS = 0.15;
   phi = Math.max(EPS, Math.min(Math.PI - EPS, phi));
   updateCameraFromSpherical();
@@ -296,15 +297,11 @@ function animate() {
   let yOffset = 0;
   if (window.innerWidth < 700) {
     const distFromBottom = Math.max(docH - (scrollY + windowH), 0);
-    const bottomZone = 600;
-    const t = 1 - Math.min(distFromBottom / bottomZone, 1);
+    const bottomZone = 400;
     
-    if (t > 0) {
-      yOffset = -windowH * 0.15;
-      
-      if (distFromBottom < 100) {
-        yOffset = -windowH * 0.25;
-      }
+    if (distFromBottom <= bottomZone) {
+      const progress = 1 - (distFromBottom / bottomZone);
+      yOffset = progress * windowH * 0.3;
     }
   }
   mesh.position.set(0, yOffset, 0);
@@ -327,7 +324,7 @@ window.addEventListener('scroll', () => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
   const docH = document.documentElement.scrollHeight;
-  const atBottom = scrollY + windowH >= docH - 600;
+  const atBottom = scrollY + windowH >= docH - 400;
   interactionEnabled = atBottom;
   updateMobileOffset(atBottom);
 });
