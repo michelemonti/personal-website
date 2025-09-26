@@ -70,7 +70,6 @@ directionalLight.position.set(5, 6, 10);
 scene.add(directionalLight);
 
 let mouseX = 0, mouseY = 0;
-
 let interactionEnabled = false;
 let dragging = false;
 let lastMouseX = 0, lastMouseY = 0;
@@ -92,30 +91,8 @@ function updateCameraFromSpherical() {
   camera.lookAt(0, targetY, 0);
 }
 
-function getBottomOverlayHeight() {
-  let maxH = 0;
-  const els = Array.from(document.querySelectorAll('body *'));
-  for (const el of els) {
-    const cs = window.getComputedStyle(el);
-    if (cs.position === 'fixed' && parseFloat(cs.bottom || '0') <= 1 && cs.display !== 'none' && cs.visibility !== 'hidden') {
-      const r = el.getBoundingClientRect();
-      if (r.bottom >= window.innerHeight - 1 && r.top < window.innerHeight) {
-        maxH = Math.max(maxH, r.height);
-      }
-    }
-  }
-  return maxH;
-}
-
 function updateMobileOffset(atBottom) {
-  if (window.innerWidth < 700 && atBottom) {
-    const overlayPx = getBottomOverlayHeight();
-    const fovRad = camera.fov * Math.PI / 180;
-    const worldPerPx = (2 * radius * Math.tan(fovRad / 2)) / window.innerHeight;
-    targetY = overlayPx ? (overlayPx / 2) * worldPerPx : 0;
-  } else {
-    targetY = 0;
-  }
+  targetY = 0;
   updateCameraFromSpherical();
 }
 
@@ -211,6 +188,8 @@ if (window.DeviceOrientationEvent) {
 
 let touchDragging = false;
 let lastTouchX = 0, lastTouchY = 0;
+let pinchZooming = false;
+let lastPinchDist = 0;
 document.addEventListener('touchstart', (e) => {
   const touch = e.touches[0];
   const scrollY = window.scrollY || window.pageYOffset;
@@ -225,21 +204,39 @@ document.addEventListener('touchstart', (e) => {
     lastTouchX = touch.clientX;
     lastTouchY = touch.clientY;
   }
+  if (e.touches.length === 2) {
+    pinchZooming = true;
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    lastPinchDist = Math.hypot(dx, dy);
+  }
 }, { passive: true });
 document.addEventListener('touchmove', (e) => {
+  if (pinchZooming && e.touches.length === 2) {
+    e.preventDefault();
+    const dx = e.touches[0].clientX - e.touches[1].clientX;
+    const dy = e.touches[0].clientY - e.touches[1].clientY;
+    const dist = Math.hypot(dx, dy);
+    const delta = dist - lastPinchDist;
+    lastPinchDist = dist;
+    radius *= (1 - delta * 0.002);
+    radius = Math.max(12, Math.min(60, radius));
+    updateCameraFromSpherical();
+    return;
+  }
   if (!touchDragging) return;
   const touch = e.touches[0];
   const deltaX = touch.clientX - lastTouchX;
   const deltaY = touch.clientY - lastTouchY;
   lastTouchX = touch.clientX;
   lastTouchY = touch.clientY;
-  theta -= deltaX * 0.006;
-  phi   -= deltaY * 0.006;
+  theta -= deltaX * 0.0045;
+  phi   -= deltaY * 0.0045;
   const EPS = 0.15;
   phi = Math.max(EPS, Math.min(Math.PI - EPS, phi));
   updateCameraFromSpherical();
-}, { passive: true });
-document.addEventListener('touchend', () => { touchDragging = false; }, { passive: true });
+}, { passive: false });
+document.addEventListener('touchend', () => { touchDragging = false; pinchZooming = false; }, { passive: true });
 
 function createClickEffect(x, y) {
   const effect = document.createElement('div');
@@ -270,8 +267,9 @@ function animate() {
   particles.rotation.y += 0.002;
   
   if (interactionEnabled) {
-    mesh.rotation.x += 0.0025;
-    mesh.rotation.y += 0.0035;
+    if (!dragging && !touchDragging) {
+      mesh.rotation.y += 0.0006;
+    }
   } else {
     const targetRotationX = mouseY * 0.5;
     const targetRotationY = mouseX * 0.5;
@@ -332,7 +330,7 @@ const i18n = {
     business_p: "JUNO.AM (fondata nel 2012) e 3FESTO/ANY3DP: ecosistema integrato tra stampa 3D professionale e software MES modulare per l’additive. Guido strategia, prodotto e operatività end‑to‑end.",
     vision_h2: "Visione",
     logos_title: "LE MIE IMPRESE E LA MIA ATTIVITA PERSONALE:",
-    controls_bar: "Trascina: orbit • Inclina: hover • Doppio tap: reset",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> CAD parametrico e di superfici per prodotto/meccanica; modellazione solida/NURBS e messa in tavola",
   skills_amtools: "<strong><em>AM Tools:</em></strong> toolchain per additive: slicing, riparazione mesh, analisi e preparazione di stampa",
@@ -363,7 +361,7 @@ const i18n = {
     business_p: "JUNO.AM (founded in 2012) and 3FESTO/ANY3DP form an integrated ecosystem: professional 3D printing plus a modular MES for additive. I lead strategy, product, and end‑to‑end operations.",
     vision_h2: "Vision",
     logos_title: "MY COMPANIES AND PERSONAL ACTIVITY:",
-    controls_bar: "Drag: orbit • Tilt: hover • Double tap: reset",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> Parametric and surface CAD for product/mechanical design; solid/NURBS modeling and drafting",
   skills_amtools: "<strong><em>AM Tools:</em></strong> Additive manufacturing toolchain: slicing, mesh repair, analysis and print preparation",
@@ -394,7 +392,7 @@ const i18n = {
     business_p: "JUNO.AM (fundada en 2012) y 3FESTO/ANY3DP: ecosistema integrado entre impresión 3D profesional y un MES modular para aditiva. Lidero estrategia, producto y operaciones end‑to‑end.",
     vision_h2: "Visión",
     logos_title: "MIS EMPRESAS Y ACTIVIDAD PERSONAL:",
-    controls_bar: "Arrastrar: órbita • Inclinar: hover • Doble toque: reset",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> CAD paramétrico y de superficies para diseño de producto/mecánico; modelado sólido/NURBS y planos",
   skills_amtools: "<strong><em>AM Tools:</em></strong> Herramientas para fabricación aditiva: slicing, reparación de mallas, análisis y preparación de impresión",
@@ -425,7 +423,7 @@ const i18n = {
     business_p: "JUNO.AM (fundada el 2012) i 3FESTO/ANY3DP: ecosistema integrat entre impressió 3D professional i MES modular per a l’additiva. Lidero estratègia, producte i operacions end‑to‑end.",
     vision_h2: "Visió",
     logos_title: "LES MEVES EMPRESES I ACTIVITAT PERSONAL:",
-    controls_bar: "Arrossega: òrbita • Inclina: hover • Doble toc: reset",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> CAD paramètric i de superfícies per a disseny de producte/mecànic; modelatge sòlid/NURBS i plànols",
   skills_amtools: "<strong><em>AM Tools:</em></strong> Eines per a manufactura additiva: slicing, reparació de malles, anàlisi i preparació d’impressió",
@@ -456,7 +454,7 @@ const i18n = {
     business_p: "JUNO.AM (fondée en 2012) et 3FESTO/ANY3DP : un écosystème intégré entre impression 3D professionnelle et MES modulaire pour l’additif. Je dirige la stratégie, le produit et les opérations de bout en bout.",
     vision_h2: "Vision",
     logos_title: "MES ENTREPRISES ET MON ACTIVITÉ PERSONNELLE :",
-    controls_bar: "Faites glisser : orbite • Inclinez : survol • Double tap : réinitialiser",
+  
     // Skills
   skills_cad: "<strong><em>CAD :</em></strong> CAO paramétrique et surfacique pour conception produit/mécanique ; modélisation solide/NURBS et mise en plan",
   skills_amtools: "<strong><em>Outils AM :</em></strong> Chaîne FA : slicing, réparation de maillages, analyse et préparation d’impression",
@@ -487,7 +485,7 @@ const i18n = {
     business_p: "JUNO.AM (osnovana 2012) i 3FESTO/ANY3DP: integrisani ekosistem profesionalne 3D štampe i modularnog MES softvera za aditivnu proizvodnju. Vodim strategiju, proizvod i end‑to‑end operacije.",
     vision_h2: "Vizija",
     logos_title: "MOJE KOMPANIJE I LIČNA AKTIVNOST:",
-    controls_bar: "Prevuci: orbita • Nagnite: hover • Dvostruki dodir: reset",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> Parametarski i površinski CAD za produkt/mehanički dizajn; čvrsto/NURBS modelovanje i tehnički crteži",
   skills_amtools: "<strong><em>AM alati:</em></strong> Alatni lanac za aditivnu proizvodnju: slicing, popravka mreža, analiza i priprema štampe",
@@ -518,7 +516,7 @@ const i18n = {
     business_p: "JUNO.AM (основана в 2012) и 3FESTO/ANY3DP — интегрированная экосистема: профессиональная 3D‑печать плюс модульная MES‑платформа для аддитивного производства. Руководю стратегией, продуктом и операциями end‑to‑end.",
     vision_h2: "Видение",
     logos_title: "МОИ КОМПАНИИ И ЛИЧНАЯ ДЕЯТЕЛЬНОСТЬ:",
-    controls_bar: "Перетаскивание: орбита • Наклон: hover • Двойной тап: сброс",
+  
     // Skills
   skills_cad: "<strong><em>CAD:</em></strong> Параметрическое и поверхностное CAD для продуктового/механического дизайна; твердотельное/NURBS‑моделирование и чертежи",
   skills_amtools: "<strong><em>Инструменты AM:</em></strong> Цепочка инструментов для АМ: слайсинг, починка сеток, анализ и подготовка к печати",
@@ -574,7 +572,9 @@ function setupLanguageToggle() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', setupLanguageToggle);
+  document.addEventListener('DOMContentLoaded', () => { 
+    setupLanguageToggle();
+  });
 } else {
   setupLanguageToggle();
 }

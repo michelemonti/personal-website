@@ -523,7 +523,6 @@ blockquote:hover {
   }
 }
 
-/* Reserve scroll space for the 3D bottom interaction zone */
 body::after {
   content: "";
   display: block;
@@ -566,65 +565,32 @@ body::after {
   background: #fff;
   color: #222;
 }
-.bottom-bar-animation {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(30,30,30,0.97);
-  color: #fff;
-  font-size: 1.15rem;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0.5rem;
-  z-index: 9999;
-  box-shadow: 0 -4px 32px #000a;
-  animation: popup-fadein 0.7s;
-  max-width: 100vw;
-  box-sizing: border-box;
-}
-.bottom-bar-animation button {
-  background: #8faaff;
-  color: #111;
-  border: none;
-  border-radius: 6px;
-  padding: 0.5rem 1.2rem;
-  font-weight: 700;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.bottom-bar-animation button:hover {
-  background: #fff;
-  color: #222;
-}
-@keyframes popup-fadein {
-  from { opacity: 0; transform: translateY(40px);}
-  to   { opacity: 1; transform: translateY(0);}
-}
+/* removed bottom 3D control hints */
 @media (max-width: 600px) {
   body {
     padding: 1rem;
   }
-  .bottom-bar-animation {
-    display: flex;
-    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
-  }
+  /* bottom hints removed */
   .name-box {
     font-size: 1.2rem;
     padding: 0.8rem 0.5rem;
     margin-top: 1rem;
+    background: linear-gradient(135deg, rgba(18,18,18,0.92) 0%, rgba(22,22,22,0.88) 100%);
+    color: #f0f0f0;
+    border-color: rgba(255,255,255,0.08);
   }
   .name-box img {
     max-width: 220px;
   }
   .logos {
     padding: 1rem 0.5rem;
+    background: linear-gradient(135deg, rgba(20,20,20,0.92) 0%, rgba(26,26,26,0.88) 100%);
+    color: #f0f0f0;
+    border-color: rgba(255,255,255,0.08);
   }
   .logos-title {
     font-size: 1rem;
+    color: #fff;
   }
   .logos-row {
     flex-direction: column;
@@ -646,7 +612,7 @@ body::after {
   }
   .section {
     padding: 1.2rem 0.5rem 1rem 0.5rem;
-    background: #232323;
+    background: #1f1f1f;
   }
   .section-header {
     gap: 0.7rem;
