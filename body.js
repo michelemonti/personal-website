@@ -320,6 +320,9 @@ window.addEventListener('resize', () => {
   updateMobileOffset(interactionEnabled);
 });
 
+let hintShownOnce = false;
+let hintTimeout = null;
+
 window.addEventListener('scroll', () => {
   const scrollY = window.scrollY || window.pageYOffset;
   const windowH = window.innerHeight;
@@ -327,6 +330,23 @@ window.addEventListener('scroll', () => {
   const atBottom = scrollY + windowH >= docH - 400;
   interactionEnabled = atBottom;
   updateMobileOffset(atBottom);
+  
+  // Show/hide interaction hint
+  const hint = document.getElementById('interaction-hint');
+  if (hint) {
+    if (atBottom && !hintShownOnce) {
+      hint.classList.add('visible');
+      hintShownOnce = true;
+      // Auto-hide after 4 seconds
+      if (hintTimeout) clearTimeout(hintTimeout);
+      hintTimeout = setTimeout(() => {
+        hint.classList.remove('visible');
+      }, 4000);
+    } else if (!atBottom) {
+      hint.classList.remove('visible');
+      hintShownOnce = false;
+    }
+  }
 });
 
 const style = document.createElement('style');
@@ -346,221 +366,144 @@ document.head.appendChild(style);
 
 const i18n = {
   it: {
-    intro: "Imprenditore multidisciplinare con 15 anni di esperienza nei settori della manifattura digitale, design industriale e tecnologie emergenti. CEO / Creative Director di <strong class=\"highlight-text\">JUNO.AM</strong>, e Head of Products per <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Imprenditore con 15 anni nella manifattura digitale e stampa 3D. CEO di <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products per <strong class=\"highlight-text\">3FESTO</strong>. Costruisco aziende, prodotti e team.",
     skills_h2: "COMPETENZE",
     business_h2: "BUSINESS",
-    business_p: "JUNO.AM (fondata nel 2012) e 3FESTO/ANY3DP: ecosistema integrato tra stampa 3D professionale e software MES modulare per l’additive. Guido strategia, prodotto e operatività end‑to‑end.",
-    vision_h2: "Visione",
-    logos_title: "LE MIE IMPRESE E LA MIA ATTIVITA PERSONALE:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> CAD parametrico e di superfici per prodotto/meccanica; modellazione solida/NURBS e messa in tavola",
-  skills_amtools: "<strong><em>AM Tools:</em></strong> toolchain per additive: slicing, riparazione mesh, analisi e preparazione di stampa",
-    skills_dev: "<strong><em>Dev:</em></strong> Web full‑stack (TypeScript/JavaScript/PHP), architetture moderne (SPA/SSR/SSG), API REST, WebGL/3D, CI/CD, container e Git",
-    skills_ai: "<strong><em>AI:</em></strong> GPT APIs, Hugging Face, image vision, prototipi hard-coded",
-    skills_admin: "<strong><em>Business Admin:</em></strong> gestione a 360° di PMI, fiscalità e finanza italiana, budgeting, operations, strategia",
-    skills_exp: "<strong><em>Esperienza diretta:</em></strong> scale-up aziendali, fondazione e direzione, sviluppo di brand indipendenti",
-    skills_mindset: "<strong><em>Mindset:</em></strong> visione, motivazione, pragmaticità, equilibrio tra visione e execution",
-
-    business_roles: "<strong><em>Ruoli:</em></strong> Co‑founder/CEO & Creative Director (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Core:</em></strong> Stampa 3D professionale + piattaforma MES modulare a supporto dell’intero ciclo AM.",
-    business_tech: "<strong><em>Tecnologie 3DP:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototipazione, serie, parti funzionali).",
-    business_services: "<strong><em>Servizi CAD:</em></strong> DfAM e ottimizzazione topologica, prototipazione/produzione, reverse engineering (scanner fino a 0,05 mm).",
-    business_software: "<strong><em>Software:</em></strong> Frontend moderni; Backend REST/event‑driven con queue/worker e observability; dati relazionali + cache + object storage.",
-    business_microservices: "<strong><em>Microservizi:</em></strong> AI predictions, algoritmic quoting, 3D parsing, job tracking; engine mesh C++, Three.js experience; API documentate per integrazioni.",
-    business_ops: "<strong><em>Operatività:</em></strong> Automazione software/hardware per gestione distribuita della stampa 3D e KPI.",
-  business_teamco: "<strong><em>Team & Società:</em></strong> Designer, ingegneri e tecnici specializzati; JUNO DESIGN SRL controllata da STUDIO PEDRINI SRL; 3FESTO SRL; brand: JUNO.AM e ANY3DP.",
+    vision_h2: "VISIONE",
+    logos_title: "LE MIE IMPRESE E LA MIA ATTIVITÀ PERSONALE:",
     
+    skills_design: "<strong><em>Design & CAD:</em></strong> Modellazione parametrica e organica, DfAM, reverse engineering",
+    skills_3dp: "<strong><em>Stampa 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — dalla prototipazione alla produzione",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, architetture cloud, AI/ML applicata dal manufacturing al day-to-day",
+    skills_business: "<strong><em>Business:</em></strong> Strategia, operations, fundraising, gestione PMI",
 
-    vision_quote: "La manifattura digitale è cultura: un ponte tra intuizione umana, automazione e software. La stampa 3D non è solo tecnologia, ma linguaggio che trasforma idee in oggetti e processi. Ogni pezzo stampato racconta visione e innovazione, grazie a strumenti digitali e software che abilitano nuove forme di creazione. Fabbricare oggi significa progettare il futuro, integrando pensiero, codice e materia.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau 3D printing professionale. Prototipazione rapida, produzione in serie, design industriale.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 linee di prodotto: MES software per AM, hardware custom, operations utilities, servizi IT avanzati.",
 
-    vat_label: "P.IVA (IT)03456789012"
+    vision_quote: "Credo che la manifattura digitale sia il ponte tra idee e oggetti. Il mio lavoro è costruire gli strumenti che rendono questo possibile.",
+
+    vat_label: "P.IVA (IT)03456789012",
+    hint_interact: "Interagisci con il solido 3D!"
   },
   en: {
-    intro: "Multidisciplinary entrepreneur with 15 years across digital manufacturing, industrial design and emerging tech. CEO / Creative Director at <strong class=\"highlight-text\">JUNO.AM</strong>, and Head of Products for <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Entrepreneur with 15 years in digital manufacturing and 3D printing. CEO at <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products at <strong class=\"highlight-text\">3FESTO</strong>. I build companies, products and teams.",
     skills_h2: "SKILLS",
     business_h2: "BUSINESS",
-    business_p: "JUNO.AM (founded in 2012) and 3FESTO/ANY3DP form an integrated ecosystem: professional 3D printing plus a modular MES for additive. I lead strategy, product, and end‑to‑end operations.",
-    vision_h2: "Vision",
+    vision_h2: "VISION",
     logos_title: "MY COMPANIES AND PERSONAL ACTIVITY:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> Parametric and surface CAD for product/mechanical design; solid/NURBS modeling and drafting",
-  skills_amtools: "<strong><em>AM Tools:</em></strong> Additive manufacturing toolchain: slicing, mesh repair, analysis and print preparation",
-    skills_dev: "<strong><em>Dev:</em></strong> Full‑stack web (TypeScript/JavaScript/PHP), modern architectures (SPA/SSR/SSG), REST APIs, WebGL/3D, CI/CD, containers and Git",
-    skills_ai: "<strong><em>AI:</em></strong> GPT APIs, Hugging Face, computer vision, hard‑coded prototypes",
-    skills_admin: "<strong><em>Business Admin:</em></strong> 360° SME management, Italian tax and finance, budgeting, operations, strategy",
-    skills_exp: "<strong><em>Hands‑on:</em></strong> company scale‑ups, founding and leadership, building independent brands",
-    skills_mindset: "<strong><em>Mindset:</em></strong> vision, drive, pragmatism, balance between vision and execution",
-
-    business_roles: "<strong><em>Roles:</em></strong> Co‑founder/CEO & Creative Director (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Core:</em></strong> Professional 3D printing + modular MES platform supporting the full AM lifecycle.",
-    business_tech: "<strong><em>3DP Technologies:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototyping, series, functional parts).",
-    business_services: "<strong><em>CAD Services:</em></strong> DfAM and topology optimization, prototyping/production, reverse engineering (scanning up to 0.05 mm).",
-    business_software: "<strong><em>Software:</em></strong> Component‑based frontend (SSR/SSG, WebGL/3D); REST/event‑driven backend with queues/workers and observability; relational data + cache + object storage.",
-    business_microservices: "<strong><em>Microservices:</em></strong> AI predictions, algorithmic quoting, 3D parsing, job tracking; mesh engine in C++, Three.js experiences; documented APIs for integrations.",
-    business_ops: "<strong><em>Operations:</em></strong> Software/hardware automation for distributed 3D printing management and KPIs.",
-  business_teamco: "<strong><em>Team & Company:</em></strong> Designers, engineers and specialized technicians; JUNO DESIGN SRL controlled by STUDIO PEDRINI SRL; 3FESTO SRL; brands: JUNO.AM and ANY3DP.",
     
+    skills_design: "<strong><em>Design & CAD:</em></strong> Parametric and organic modeling, DfAM, reverse engineering",
+    skills_3dp: "<strong><em>3D Printing:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — from prototyping to production",
+    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, cloud architectures, AI/ML applied to manufacturing",
+    skills_business: "<strong><em>Business:</em></strong> Strategy, operations, fundraising, SME management",
 
-    vision_quote: "Digital manufacturing is culture: a bridge between human intuition, automation, and software. 3D printing is not just technology, but a language that transforms ideas into objects and processes. Every printed piece tells a story of vision and innovation, thanks to digital tools and software that enable new forms of creation. Manufacturing today means designing the future, integrating thought, code, and matter.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Professional 3D printing service bureau. Rapid prototyping, series production, industrial design.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 product lines: MES software for AM, custom hardware, operations utilities, advanced IT services.",
 
-    vat_label: "VAT (IT)03456789012"
+    vision_quote: "I believe digital manufacturing is the bridge between ideas and objects. My job is to build the tools that make this possible.",
+
+    vat_label: "VAT (IT)03456789012",
+    hint_interact: "Interact with the 3D shape!"
   },
   es: {
-    intro: "Emprendedor multidisciplinario con 15 años de experiencia en fabricación digital, diseño industrial y tecnologías emergentes. CEO / Director Creativo en <strong class=\"highlight-text\">JUNO.AM</strong> y Head of Products en <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Emprendedor con 15 años en fabricación digital e impresión 3D. CEO de <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products en <strong class=\"highlight-text\">3FESTO</strong>. Construyo empresas, productos y equipos.",
     skills_h2: "COMPETENCIAS",
     business_h2: "NEGOCIO",
-    business_p: "JUNO.AM (fundada en 2012) y 3FESTO/ANY3DP: ecosistema integrado entre impresión 3D profesional y un MES modular para aditiva. Lidero estrategia, producto y operaciones end‑to‑end.",
-    vision_h2: "Visión",
+    vision_h2: "VISIÓN",
     logos_title: "MIS EMPRESAS Y ACTIVIDAD PERSONAL:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> CAD paramétrico y de superficies para diseño de producto/mecánico; modelado sólido/NURBS y planos",
-  skills_amtools: "<strong><em>AM Tools:</em></strong> Herramientas para fabricación aditiva: slicing, reparación de mallas, análisis y preparación de impresión",
-    skills_dev: "<strong><em>Dev:</em></strong> Web full‑stack (TypeScript/JavaScript/PHP), arquitecturas modernas (SPA/SSR/SSG), APIs REST, WebGL/3D, CI/CD, contenedores y Git",
-    skills_ai: "<strong><em>AI:</em></strong> APIs de GPT, Hugging Face, visión por computadora, prototipos hard‑coded",
-    skills_admin: "<strong><em>Administración:</em></strong> gestión 360° de PyMEs, fiscalidad y finanzas italianas, presupuestos, operaciones, estrategia",
-    skills_exp: "<strong><em>Experiencia directa:</em></strong> scale‑ups de empresas, fundación y dirección, desarrollo de marcas independientes",
-    skills_mindset: "<strong><em>Mindset:</em></strong> visión, motivación, pragmatismo, equilibrio entre visión y ejecución",
-
-    business_roles: "<strong><em>Roles:</em></strong> Co‑founder/CEO & Director Creativo (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Núcleo:</em></strong> Impresión 3D profesional + plataforma MES modular que soporta todo el ciclo AM.",
-    business_tech: "<strong><em>Tecnologías 3DP:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototipado, series, piezas funcionales).",
-    business_services: "<strong><em>Servicios:</em></strong> DfAM y optimización topológica, prototipado/producción, ingeniería inversa (escaneo hasta 0,05 mm).",
-    business_software: "<strong><em>Software:</em></strong> Frontend basado en componentes (SSR/SSG, WebGL/3D); Backend REST/event‑driven con colas/workers y observabilidad; datos relacionales + caché + object storage.",
-    business_microservices: "<strong><em>Microservicios:</em></strong> predicciones de IA, cotización algorítmica, parsing 3D, seguimiento de trabajos; motor de malla en C++, experiencias con Three.js; APIs documentadas para integraciones.",
-    business_ops: "<strong><em>Operación:</em></strong> Automatización de software/hardware para gestión distribuida de impresión 3D y KPIs.",
-  business_teamco: "<strong><em>Equipo y Sociedad:</em></strong> Diseñadores, ingenieros y técnicos especializados; JUNO DESIGN SRL controlada por STUDIO PEDRINI SRL; 3FESTO SRL; marcas: JUNO.AM y ANY3DP.",
     
+    skills_design: "<strong><em>Diseño & CAD:</em></strong> Modelado paramétrico y orgánico, DfAM, ingeniería inversa",
+    skills_3dp: "<strong><em>Impresión 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — del prototipado a la producción",
+    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, arquitecturas cloud, AI/ML aplicada a manufactura",
+    skills_business: "<strong><em>Negocio:</em></strong> Estrategia, operaciones, fundraising, gestión de PyMEs",
 
-    vision_quote: "La manufactura digital es cultura: un puente entre la intuición humana, la automatización y el software. La impresión 3D no es solo tecnología, sino un lenguaje que transforma ideas en objetos y procesos. Cada pieza impresa cuenta una historia de visión e innovación, gracias a herramientas digitales y software que habilitan nuevas formas de creación. Fabricar hoy significa diseñar el futuro, integrando pensamiento, código y materia.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau de impresión 3D profesional. Prototipado rápido, producción en serie, diseño industrial.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 líneas de producto: software MES para AM, hardware custom, utilidades operativas, servicios IT avanzados.",
 
-    vat_label: "IVA (IT)03456789012"
+    vision_quote: "Creo que la manufactura digital es el puente entre ideas y objetos. Mi trabajo es construir las herramientas que lo hacen posible.",
+
+    vat_label: "IVA (IT)03456789012",
+    hint_interact: "¡Interactúa con el sólido 3D!"
   },
   ca: {
-    intro: "Emprenedor multidisciplinari amb 15 anys d’experiència en fabricació digital, disseny industrial i tecnologies emergents. CEO / Director Creatiu a <strong class=\"highlight-text\">JUNO.AM</strong>, i Head of Products a <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Emprenedor amb 15 anys en fabricació digital i impressió 3D. CEO de <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products a <strong class=\"highlight-text\">3FESTO</strong>. Construeixo empreses, productes i equips.",
     skills_h2: "COMPETÈNCIES",
     business_h2: "NEGOCI",
-    business_p: "JUNO.AM (fundada el 2012) i 3FESTO/ANY3DP: ecosistema integrat entre impressió 3D professional i MES modular per a l’additiva. Lidero estratègia, producte i operacions end‑to‑end.",
-    vision_h2: "Visió",
+    vision_h2: "VISIÓ",
     logos_title: "LES MEVES EMPRESES I ACTIVITAT PERSONAL:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> CAD paramètric i de superfícies per a disseny de producte/mecànic; modelatge sòlid/NURBS i plànols",
-  skills_amtools: "<strong><em>AM Tools:</em></strong> Eines per a manufactura additiva: slicing, reparació de malles, anàlisi i preparació d’impressió",
-    skills_dev: "<strong><em>Dev:</em></strong> Web full‑stack (TypeScript/JavaScript/PHP), arquitectures modernes (SPA/SSR/SSG), APIs REST, WebGL/3D, CI/CD, contenidors i Git",
-    skills_ai: "<strong><em>AI:</em></strong> APIs de GPT, Hugging Face, visió per computador, prototips hard‑coded",
-    skills_admin: "<strong><em>Administració:</em></strong> gestió 360° de pimes, fiscalitat i finances italianes, pressupostos, operacions, estratègia",
-    skills_exp: "<strong><em>Experiència directa:</em></strong> scale‑ups d’empresa, fundació i direcció, desenvolupament de marques independents",
-    skills_mindset: "<strong><em>Mindset:</em></strong> visió, motivació, pragmatisme, equilibri entre visió i execució",
-
-    business_roles: "<strong><em>Rols:</em></strong> Co‑founder/CEO i Director Creatiu (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Nucli:</em></strong> Impressió 3D professional + plataforma MES modular que dona suport a tot el cicle AM.",
-    business_tech: "<strong><em>Tecnologies 3DP:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototipat, sèries, peces funcionals).",
-    business_services: "<strong><em>Serveis:</em></strong> DfAM i optimització topològica, prototipat/producció, enginyeria inversa (escaneig fins a 0,05 mm).",
-    business_software: "<strong><em>Software:</em></strong> Frontend basat en components (SSR/SSG, WebGL/3D); Backend REST/event‑driven amb cues/workers i observabilitat; dades relacionals + memòria cau + object storage.",
-    business_microservices: "<strong><em>Microserveis:</em></strong> prediccions amb IA, pressupost algorítmic, parsing 3D, seguiment de treballs; motor de malla en C++, experiències Three.js; APIs documentades per a integracions.",
-    business_ops: "<strong><em>Operacions:</em></strong> Automatització de software/hardware per a la gestió distribuïda de la impressió 3D i KPIs.",
-  business_teamco: "<strong><em>Equip i Societat:</em></strong> Dissenyadors, enginyers i tècnics especialitzats; JUNO DESIGN SRL controlada per STUDIO PEDRINI SRL; 3FESTO SRL; marques: JUNO.AM i ANY3DP.",
     
+    skills_design: "<strong><em>Disseny & CAD:</em></strong> Modelatge paramètric i orgànic, DfAM, enginyeria inversa",
+    skills_3dp: "<strong><em>Impressió 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — del prototipat a la producció",
+    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, arquitectures cloud, AI/ML aplicada a manufactura",
+    skills_business: "<strong><em>Negoci:</em></strong> Estratègia, operacions, fundraising, gestió de pimes",
 
-    vision_quote: "La manufactura digital és cultura: un pont entre la intuïció humana, l'automatització i el programari. La impressió 3D no és només tecnologia, sinó un llenguatge que transforma idees en objectes i processos. Cada peça impresa explica una història de visió i innovació, gràcies a eines digitals i programari que habiliten noves formes de creació. Fabricar avui significa dissenyar el futur, integrant pensament, codi i matèria.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau d'impressió 3D professional. Prototipat ràpid, producció en sèrie, disseny industrial.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 línies de producte: software MES per AM, hardware custom, utilitats operatives, serveis IT avançats.",
 
-    vat_label: "IVA (IT)03456789012"
+    vision_quote: "Crec que la manufactura digital és el pont entre idees i objectes. La meva feina és construir les eines que ho fan possible.",
+
+    vat_label: "IVA (IT)03456789012",
+    hint_interact: "Interactua amb el sòlid 3D!"
   },
   fr: {
-    intro: "Entrepreneur pluridisciplinaire avec 15 ans d’expérience en fabrication numérique, design industriel et technologies émergentes. CEO / Directeur Créatif chez <strong class=\"highlight-text\">JUNO.AM</strong> et Head of Products pour <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Entrepreneur avec 15 ans dans la fabrication numérique et l'impression 3D. CEO de <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products chez <strong class=\"highlight-text\">3FESTO</strong>. Je construis des entreprises, des produits et des équipes.",
     skills_h2: "COMPÉTENCES",
     business_h2: "BUSINESS",
-    business_p: "JUNO.AM (fondée en 2012) et 3FESTO/ANY3DP : un écosystème intégré entre impression 3D professionnelle et MES modulaire pour l’additif. Je dirige la stratégie, le produit et les opérations de bout en bout.",
-    vision_h2: "Vision",
-    logos_title: "MES ENTREPRISES ET MON ACTIVITÉ PERSONNELLE :",
-  
-
-  skills_cad: "<strong><em>CAD :</em></strong> CAO paramétrique et surfacique pour conception produit/mécanique ; modélisation solide/NURBS et mise en plan",
-  skills_amtools: "<strong><em>Outils AM :</em></strong> Chaîne FA : slicing, réparation de maillages, analyse et préparation d’impression",
-    skills_dev: "<strong><em>Dev :</em></strong> Web full‑stack (TypeScript/JavaScript/PHP), architectures modernes (SPA/SSR/SSG), APIs REST, WebGL/3D, CI/CD, conteneurs et Git",
-    skills_ai: "<strong><em>IA :</em></strong> APIs GPT, Hugging Face, vision par ordinateur, prototypes hard‑coded",
-    skills_admin: "<strong><em>Administration :</em></strong> gestion 360° de PME, fiscalité et finance italiennes, budgétisation, opérations, stratégie",
-    skills_exp: "<strong><em>Expérience terrain :</em></strong> scale‑ups d’entreprises, création et direction, développement de marques indépendantes",
-    skills_mindset: "<strong><em>Mindset :</em></strong> vision, motivation, pragmatisme, équilibre entre vision et exécution",
-
-    business_roles: "<strong><em>Rôles :</em></strong> Co‑founder/CEO & Directeur Créatif (JUNO.AM) ; Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Cœur :</em></strong> Impression 3D professionnelle + plateforme MES modulaire couvrant tout le cycle AM.",
-    business_tech: "<strong><em>Technologies 3DP :</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototypage, séries, pièces fonctionnelles).",
-    business_services: "<strong><em>Services :</em></strong> DfAM et optimisation topologique, prototypage/production, rétro‑ingénierie (scan jusqu’à 0,05 mm).",
-    business_software: "<strong><em>Logiciel :</em></strong> Frontend à base de composants (SSR/SSG, WebGL/3D) ; Backend REST/event‑driven avec files/workers et observabilité ; données relationnelles + cache + object storage.",
-    business_microservices: "<strong><em>Microservices :</em></strong> prédictions IA, devis algorithmique, parsing 3D, suivi des jobs ; moteur de maillage en C++, expériences Three.js ; APIs documentées pour intégrations.",
-    business_ops: "<strong><em>Opérations :</em></strong> Automatisation logiciel/matériel pour la gestion distribuée de l’impression 3D et des KPI.",
-  business_teamco: "<strong><em>Équipe & Société :</em></strong> Designers, ingénieurs et techniciens spécialisés ; JUNO DESIGN SRL contrôlée par STUDIO PEDRINI SRL ; 3FESTO SRL ; marques : JUNO.AM et ANY3DP.",
+    vision_h2: "VISION",
+    logos_title: "MES ENTREPRISES ET ACTIVITÉ PERSONNELLE :",
     
+    skills_design: "<strong><em>Design & CAD :</em></strong> Modélisation paramétrique et organique, DfAM, rétro-ingénierie",
+    skills_3dp: "<strong><em>Impression 3D :</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — du prototypage à la production",
+    skills_tech: "<strong><em>Tech :</em></strong> Full-stack dev, architectures cloud, AI/ML appliquée à la fabrication",
+    skills_business: "<strong><em>Business :</em></strong> Stratégie, opérations, fundraising, gestion de PME",
 
-    vision_quote: "La fabrication numérique est culture : un pont entre l'intuition humaine, l'automatisation et le logiciel. L'impression 3D n'est pas seulement une technologie, mais un langage qui transforme les idées en objets et processus. Chaque pièce imprimée raconte une histoire de vision et d'innovation, grâce à des outils numériques et des logiciels qui permettent de nouvelles formes de création. Fabriquer aujourd'hui signifie concevoir l'avenir, en intégrant pensée, code et matière.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau d'impression 3D professionnelle. Prototypage rapide, production en série, design industriel.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 lignes de produits : logiciel MES pour AM, hardware custom, utilitaires opérationnels, services IT avancés.",
 
-    vat_label: "TVA (IT)03456789012"
+    vision_quote: "Je crois que la fabrication numérique est le pont entre les idées et les objets. Mon travail est de construire les outils qui rendent cela possible.",
+
+    vat_label: "TVA (IT)03456789012",
+    hint_interact: "Interagissez avec le solide 3D !"
   },
   sr: {
-    intro: "Multidisciplinarni preduzetnik sa 15 godina iskustva u digitalnoj proizvodnji, industrijskom dizajnu i novim tehnologijama. CEO / Kreativni direktor u <strong class=\"highlight-text\">JUNO.AM</strong> i Head of Products za <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Preduzetnik sa 15 godina u digitalnoj proizvodnji i 3D štampi. CEO u <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products u <strong class=\"highlight-text\">3FESTO</strong>. Gradim kompanije, proizvode i timove.",
     skills_h2: "VEŠTINE",
     business_h2: "BIZNIS",
-    business_p: "JUNO.AM (osnovana 2012) i 3FESTO/ANY3DP: integrisani ekosistem profesionalne 3D štampe i modularnog MES softvera za aditivnu proizvodnju. Vodim strategiju, proizvod i end‑to‑end operacije.",
-    vision_h2: "Vizija",
+    vision_h2: "VIZIJA",
     logos_title: "MOJE KOMPANIJE I LIČNA AKTIVNOST:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> Parametarski i površinski CAD za produkt/mehanički dizajn; čvrsto/NURBS modelovanje i tehnički crteži",
-  skills_amtools: "<strong><em>AM alati:</em></strong> Alatni lanac za aditivnu proizvodnju: slicing, popravka mreža, analiza i priprema štampe",
-    skills_dev: "<strong><em>Dev:</em></strong> Full‑stack web (TypeScript/JavaScript/PHP), moderne arhitekture (SPA/SSR/SSG), REST API, WebGL/3D, CI/CD, kontejneri i Git",
-    skills_ai: "<strong><em>AI:</em></strong> GPT API‑ji, Hugging Face, računarski vid, hard‑coded prototipovi",
-    skills_admin: "<strong><em>Administracija:</em></strong> 360° upravljanje MSP, italijanski porezi i finansije, budžetiranje, operacije, strategija",
-    skills_exp: "<strong><em>Praktično iskustvo:</em></strong> skaliranje kompanija, osnivanje i vođenje, razvoj nezavisnih brendova",
-    skills_mindset: "<strong><em>Mindset:</em></strong> vizija, motivacija, pragmatizam, balans između vizije i egzekucije",
-
-    business_roles: "<strong><em>Uloge:</em></strong> Su‑osnivač/CEO i Kreativni direktor (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Jezgro:</em></strong> Profesionalna 3D štampa + modularna MES platforma koja podržava ceo AM ciklus.",
-    business_tech: "<strong><em>3DP tehnologije:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (prototipovi, serije, funkcionalni delovi).",
-    business_services: "<strong><em>Usluge:</em></strong> DfAM i topološka optimizacija, prototipovanje/proizvodnja, reverzibilni inženjering (skener do 0,05 mm).",
-    business_software: "<strong><em>Softver:</em></strong> Frontend zasnovan na komponentama (SSR/SSG, WebGL/3D); REST/event‑driven backend sa redovima/worker‑ima i observability; relacioni podaci + keš + object storage.",
-    business_microservices: "<strong><em>Mikroservisi:</em></strong> AI predikcije, algoritamsko ponudjivanje cena, 3D parsing, praćenje poslova; mesh engine u C++, Three.js iskustva; dokumentovani API‑ji za integracije.",
-    business_ops: "<strong><em>Operacije:</em></strong> Automatizacija softver/hardver za distribuirano upravljanje 3D štampom i KPI.",
-  business_teamco: "<strong><em>Tim i Društvo:</em></strong> Dizajneri, inženjeri i specijalizovani tehničari; JUNO DESIGN SRL pod kontrolom STUDIO PEDRINI SRL; 3FESTO SRL; brendovi: JUNO.AM i ANY3DP.",
     
+    skills_design: "<strong><em>Dizajn & CAD:</em></strong> Parametarsko i organsko modelovanje, DfAM, reverzni inženjering",
+    skills_3dp: "<strong><em>3D štampa:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — od prototipa do proizvodnje",
+    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, cloud arhitekture, AI/ML primenjena na proizvodnju",
+    skills_business: "<strong><em>Biznis:</em></strong> Strategija, operacije, fundraising, upravljanje MSP",
 
-    vision_quote: "Digitalna proizvodnja je kultura: most između ljudske intuicije, automatizacije i softvera. 3D štampa nije samo tehnologija, već jezik koji pretvara ideje u objekte i procese. Svaki odštampani deo priča priču o viziji i inovaciji, zahvaljujući digitalnim alatima i softverima koji omogućavaju nove forme stvaranja. Proizvoditi danas znači dizajnirati budućnost, integrirajući misao, kod i materiju.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Profesionalni 3D printing servis. Brzo prototipovanje, serijska proizvodnja, industrijski dizajn.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 linije proizvoda: MES softver za AM, custom hardver, operativni alati, napredne IT usluge.",
 
-    vat_label: "PDV (IT)03456789012"
+    vision_quote: "Verujem da je digitalna proizvodnja most između ideja i objekata. Moj posao je da gradim alate koji to omogućavaju.",
+
+    vat_label: "PDV (IT)03456789012",
+    hint_interact: "Interagujte sa 3D telom!"
   },
   ru: {
-    intro: "Мультидисциплинарный предприниматель с 15‑летним опытом в цифровом производстве, промышленном дизайне и новых технологиях. CEO / Creative Director в <strong class=\"highlight-text\">JUNO.AM</strong> и Head of Products в <strong class=\"highlight-text\">ANY3DP.APP</strong>.",
+    intro: "Предприниматель с 15-летним опытом в цифровом производстве и 3D-печати. CEO <strong class=\"highlight-text\">JUNO.AM</strong>, Head of Products в <strong class=\"highlight-text\">3FESTO</strong>. Строю компании, продукты и команды.",
     skills_h2: "НАВЫКИ",
     business_h2: "БИЗНЕС",
-    business_p: "JUNO.AM (основана в 2012) и 3FESTO/ANY3DP — интегрированная экосистема: профессиональная 3D‑печать плюс модульная MES‑платформа для аддитивного производства. Руководю стратегией, продуктом и операциями end‑to‑end.",
-    vision_h2: "Видение",
+    vision_h2: "ВИДЕНИЕ",
     logos_title: "МОИ КОМПАНИИ И ЛИЧНАЯ ДЕЯТЕЛЬНОСТЬ:",
-  
-
-  skills_cad: "<strong><em>CAD:</em></strong> Параметрическое и поверхностное CAD для продуктового/механического дизайна; твердотельное/NURBS‑моделирование и чертежи",
-  skills_amtools: "<strong><em>Инструменты AM:</em></strong> Цепочка инструментов для АМ: слайсинг, починка сеток, анализ и подготовка к печати",
-    skills_dev: "<strong><em>Разработка:</em></strong> Full‑stack веб (TypeScript/JavaScript/PHP), современные архитектуры (SPA/SSR/SSG), REST API, WebGL/3D, CI/CD, контейнеры и Git",
-    skills_ai: "<strong><em>ИИ:</em></strong> GPT API, Hugging Face, компьютерное зрение, hard‑coded прототипы",
-    skills_admin: "<strong><em>Администрирование бизнеса:</em></strong> 360° управление МСП, итальянские налоги и финансы, бюджетирование, операции, стратегия",
-    skills_exp: "<strong><em>Практика:</em></strong> масштабирование компаний, основание и руководство, развитие независимых брендов",
-    skills_mindset: "<strong><em>Подход:</em></strong> видение, мотивация, прагматизм, баланс между видением и исполнением",
-
-    business_roles: "<strong><em>Роли:</em></strong> Со‑основатель/CEO и креативный директор (JUNO.AM); Head of Products (3FESTO/ANY3DP).",
-    business_core: "<strong><em>Ядро:</em></strong> Профессиональная 3D‑печать + модульная MES‑платформа, охватывающая весь жизненный цикл AM.",
-    business_tech: "<strong><em>3DP‑технологии:</em></strong> HP MJF, Carbon DLS, LPBF, FDM, PolyJet (прототипирование, серии, функциональные детали).",
-    business_services: "<strong><em>Услуги:</em></strong> DfAM и топологическая оптимизация, прототипирование/производство, реверс‑инжиниринг (сканирование до 0,05 мм).",
-    business_software: "<strong><em>Софт:</em></strong> Frontend на компонентах (SSR/SSG, WebGL/3D); REST/event‑driven backend с очередями/воркерами и наблюдаемостью; реляционные данные + кэш + object storage.",
-    business_microservices: "<strong><em>Микросервисы:</em></strong> AI‑предсказания, алгоритмические расчёты стоимости, 3D‑парсинг, трекинг задач; mesh‑движок на C++, проекты на Three.js; документированные API для интеграций.",
-    business_ops: "<strong><em>Операции:</em></strong> Автоматизация ПО/ЖО для распределённого управления 3D‑печатью и KPI.",
-  business_teamco: "<strong><em>Команда и компания:</em></strong> Дизайнеры, инженеры и профильные техники; JUNO DESIGN SRL под управлением STUDIO PEDRINI SRL; 3FESTO SRL; бренды: JUNO.AM и ANY3DP.",
     
+    skills_design: "<strong><em>Дизайн & CAD:</em></strong> Параметрическое и органическое моделирование, DfAM, реверс-инжиниринг",
+    skills_3dp: "<strong><em>3D-печать:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — от прототипа до производства",
+    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, облачные архитектуры, AI/ML в производстве",
+    skills_business: "<strong><em>Бизнес:</em></strong> Стратегия, операции, fundraising, управление МСП",
 
-    vision_quote: "Цифровое производство — культура: мост между человеческой интуицией, автоматизацией и программным обеспечением. 3D-печать — это не просто технология, а язык, преобразующий идеи в объекты и процессы. Каждая напечатанная деталь рассказывает историю видения и инноваций, благодаря цифровым инструментам и программному обеспечению, которые позволяют новые формы творчества. Производить сегодня значит проектировать будущее, интегрируя мысль, код и материю.",
+    business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Профессиональный сервис 3D-печати. Быстрое прототипирование, серийное производство, промышленный дизайн.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 линейками продуктов: MES-софт для AM, кастомное оборудование, операционные утилиты, продвинутые IT-услуги.",
 
-    vat_label: "НДС (IT)03456789012"
+    vision_quote: "Я верю, что цифровое производство — это мост между идеями и объектами. Моя работа — создавать инструменты, которые делают это возможным.",
+
+    vat_label: "НДС (IT)03456789012",
+    hint_interact: "Взаимодействуйте с 3D-фигурой!"
   }
 };
 
