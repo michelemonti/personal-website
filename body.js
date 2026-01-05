@@ -94,7 +94,6 @@ let lastMouseX = 0, lastMouseY = 0;
 let theta = 0.8;
 let phi = 1.1;
 let radius = 30;
-let targetY = 0;
 let targetRotationY = 0;
 
 function updateCameraFromSpherical() {
@@ -107,18 +106,7 @@ function updateCameraFromSpherical() {
     radius * cosPhi,
     radius * sinPhi * cosTheta
   );
-  camera.lookAt(0, targetY, 0);
-}
-
-function updateMobileOffset(atBottom) {
-  if (window.innerWidth < 700 && atBottom) {
-    const windowH = window.innerHeight;
-    targetY = windowH * 0.15;
-    camera.lookAt(0, targetY, 0);
-  } else {
-    targetY = 0;
-    updateCameraFromSpherical();
-  }
+  camera.lookAt(0, 0, 0);
 }
 
 document.addEventListener('click', (e) => {
@@ -186,70 +174,9 @@ document.addEventListener('dblclick', () => {
   }
 });
 
-if (window.DeviceOrientationEvent) {
-  window.addEventListener('deviceorientation', (event) => {
-    if (window.innerWidth < 700) {
-      const scrollY = window.scrollY || window.pageYOffset;
-      const windowH = window.innerHeight;
-      const docH = document.documentElement.scrollHeight;
-      
-      if (scrollY + windowH < docH - 400) {
-        mouseX = (event.gamma || 0) / 45;
-        mouseY = (event.beta || 0) / 90;
-        mouseX = Math.max(-1, Math.min(1, mouseX));
-        mouseY = Math.max(-1, Math.min(1, mouseY));
-      }
-    }
-  }, true);
-}
 
-let touchDragging = false;
-let lastTouchX = 0, lastTouchY = 0;
-let pinchZooming = false;
-let lastPinchDist = 0;
-document.addEventListener('touchstart', (e) => {
-  const touch = e.touches[0];
-  const scrollY = window.scrollY || window.pageYOffset;
-  const windowH = window.innerHeight;
-  const docH = document.documentElement.scrollHeight;
-  if (window.innerWidth < 700 && scrollY + windowH >= docH - 400) {
-    touchDragging = true;
-    lastTouchX = touch.clientX;
-    lastTouchY = touch.clientY;
-  }
-  if (e.touches.length === 2) {
-    pinchZooming = true;
-    const dx = e.touches[0].clientX - e.touches[1].clientX;
-    const dy = e.touches[0].clientY - e.touches[1].clientY;
-    lastPinchDist = Math.hypot(dx, dy);
-  }
-}, { passive: true });
-document.addEventListener('touchmove', (e) => {
-  if (pinchZooming && e.touches.length === 2) {
-    e.preventDefault();
-    const dx = e.touches[0].clientX - e.touches[1].clientX;
-    const dy = e.touches[0].clientY - e.touches[1].clientY;
-    const dist = Math.hypot(dx, dy);
-    const delta = dist - lastPinchDist;
-    lastPinchDist = dist;
-    radius *= (1 - delta * 0.002);
-    radius = Math.max(12, Math.min(60, radius));
-    updateCameraFromSpherical();
-    return;
-  }
-  if (!touchDragging) return;
-  const touch = e.touches[0];
-  const deltaX = touch.clientX - lastTouchX;
-  const deltaY = touch.clientY - lastTouchY;
-  lastTouchX = touch.clientX;
-  lastTouchY = touch.clientY;
-  theta -= deltaX * 0.008;
-  phi   -= deltaY * 0.008;
-  const EPS = 0.15;
-  phi = Math.max(EPS, Math.min(Math.PI - EPS, phi));
-  updateCameraFromSpherical();
-}, { passive: false });
-document.addEventListener('touchend', () => { touchDragging = false; pinchZooming = false; }, { passive: true });
+
+
 
 function createClickEffect(x, y) {
   const effect = document.createElement('div');
@@ -294,17 +221,7 @@ function animate() {
   mesh.rotation.x += (mouseY * 0.5 - mesh.rotation.x) * 0.05;
   mesh.rotation.z += 0.0045;
   mesh.scale.set(baseScale, baseScale, baseScale);
-  let yOffset = 0;
-  if (window.innerWidth < 700) {
-    const distFromBottom = Math.max(docH - (scrollY + windowH), 0);
-    const bottomZone = 400;
-    
-    if (distFromBottom <= bottomZone) {
-      const progress = 1 - (distFromBottom / bottomZone);
-      yOffset = progress * windowH * 0.3;
-    }
-  }
-  mesh.position.set(0, yOffset, 0);
+  mesh.position.set(0, 0, 0);
   renderer.render(scene, camera);
   if (!__fadedIn) { renderer.domElement.style.opacity = '1'; __fadedIn = true; }
 }
@@ -317,7 +234,6 @@ window.addEventListener('resize', () => {
   renderer.domElement.style.width = window.innerWidth + 'px';
   renderer.domElement.style.height = window.innerHeight + 'px';
   updateCameraFromSpherical();
-  updateMobileOffset(interactionEnabled);
 });
 
 let hintShownOnce = false;
@@ -328,13 +244,11 @@ window.addEventListener('scroll', () => {
   const windowH = window.innerHeight;
   const docH = document.documentElement.scrollHeight;
   const atBottom = scrollY + windowH >= docH - 400;
-  interactionEnabled = atBottom;
-  updateMobileOffset(atBottom);
+  interactionEnabled = atBottom && window.innerWidth >= 700;
   
-  // Show/hide interaction hint
   const hint = document.getElementById('interaction-hint');
   if (hint) {
-    if (atBottom && !hintShownOnce) {
+    if (interactionEnabled && !hintShownOnce) {
       hint.classList.add('visible');
       hintShownOnce = true;
       // Auto-hide after 4 seconds
