@@ -379,6 +379,7 @@ const i18n = {
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau 3D printing professionale. Prototipazione rapida, produzione in serie, design industriale.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 linee di prodotto: MES software per AM, hardware custom, operations utilities, servizi IT avanzati.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Everywhere.",
 
     vision_quote: "Credo che la manifattura digitale sia il ponte tra idee e oggetti. Il mio lavoro è costruire gli strumenti che rendono questo possibile.",
 
@@ -394,11 +395,12 @@ const i18n = {
     
     skills_design: "<strong><em>Design & CAD:</em></strong> Parametric and organic modeling, DfAM, reverse engineering",
     skills_3dp: "<strong><em>3D Printing:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — from prototyping to production",
-    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, cloud architectures, AI/ML applied to manufacturing",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, cloud architectures, AI/ML applied from manufacturing to day-to-day",
     skills_business: "<strong><em>Business:</em></strong> Strategy, operations, fundraising, SME management",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Professional 3D printing service bureau. Rapid prototyping, series production, industrial design.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 product lines: MES software for AM, custom hardware, operations utilities, advanced IT services.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Everywhere.",
 
     vision_quote: "I believe digital manufacturing is the bridge between ideas and objects. My job is to build the tools that make this possible.",
 
@@ -414,11 +416,12 @@ const i18n = {
     
     skills_design: "<strong><em>Diseño & CAD:</em></strong> Modelado paramétrico y orgánico, DfAM, ingeniería inversa",
     skills_3dp: "<strong><em>Impresión 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — del prototipado a la producción",
-    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, arquitecturas cloud, AI/ML aplicada a manufactura",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, arquitecturas cloud, AI/ML aplicada del manufacturing al día a día",
     skills_business: "<strong><em>Negocio:</em></strong> Estrategia, operaciones, fundraising, gestión de PyMEs",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau de impresión 3D profesional. Prototipado rápido, producción en serie, diseño industrial.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 líneas de producto: software MES para AM, hardware custom, utilidades operativas, servicios IT avanzados.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — En todas partes.",
 
     vision_quote: "Creo que la manufactura digital es el puente entre ideas y objetos. Mi trabajo es construir las herramientas que lo hacen posible.",
 
@@ -434,11 +437,12 @@ const i18n = {
     
     skills_design: "<strong><em>Disseny & CAD:</em></strong> Modelatge paramètric i orgànic, DfAM, enginyeria inversa",
     skills_3dp: "<strong><em>Impressió 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — del prototipat a la producció",
-    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, arquitectures cloud, AI/ML aplicada a manufactura",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, arquitectures cloud, AI/ML aplicada del manufacturing al dia a dia",
     skills_business: "<strong><em>Negoci:</em></strong> Estratègia, operacions, fundraising, gestió de pimes",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau d'impressió 3D professional. Prototipat ràpid, producció en sèrie, disseny industrial.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 línies de producte: software MES per AM, hardware custom, utilitats operatives, serveis IT avançats.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Arreu.",
 
     vision_quote: "Crec que la manufactura digital és el pont entre idees i objectes. La meva feina és construir les eines que ho fan possible.",
 
@@ -454,11 +458,12 @@ const i18n = {
     
     skills_design: "<strong><em>Design & CAD :</em></strong> Modélisation paramétrique et organique, DfAM, rétro-ingénierie",
     skills_3dp: "<strong><em>Impression 3D :</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — du prototypage à la production",
-    skills_tech: "<strong><em>Tech :</em></strong> Full-stack dev, architectures cloud, AI/ML appliquée à la fabrication",
+    skills_tech: "<strong><em>Coding :</em></strong> Full-stack dev, architectures cloud, AI/ML appliquée du manufacturing au quotidien",
     skills_business: "<strong><em>Business :</em></strong> Stratégie, opérations, fundraising, gestion de PME",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Service bureau d'impression 3D professionnelle. Prototypage rapide, production en série, design industriel.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 lignes de produits : logiciel MES pour AM, hardware custom, utilitaires opérationnels, services IT avancés.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Partout.",
 
     vision_quote: "Je crois que la fabrication numérique est le pont entre les idées et les objets. Mon travail est de construire les outils qui rendent cela possible.",
 
@@ -474,11 +479,12 @@ const i18n = {
     
     skills_design: "<strong><em>Dizajn & CAD:</em></strong> Parametarsko i organsko modelovanje, DfAM, reverzni inženjering",
     skills_3dp: "<strong><em>3D štampa:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — od prototipa do proizvodnje",
-    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, cloud arhitekture, AI/ML primenjena na proizvodnju",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, cloud arhitekture, AI/ML primenjena od proizvodnje do svakodnevnice",
     skills_business: "<strong><em>Biznis:</em></strong> Strategija, operacije, fundraising, upravljanje MSP",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Profesionalni 3D printing servis. Brzo prototipovanje, serijska proizvodnja, industrijski dizajn.",
     business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 linije proizvoda: MES softver za AM, custom hardver, operativni alati, napredne IT usluge.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Svuda.",
 
     vision_quote: "Verujem da je digitalna proizvodnja most između ideja i objekata. Moj posao je da gradim alate koji to omogućavaju.",
 
@@ -494,11 +500,12 @@ const i18n = {
     
     skills_design: "<strong><em>Дизайн & CAD:</em></strong> Параметрическое и органическое моделирование, DfAM, реверс-инжиниринг",
     skills_3dp: "<strong><em>3D-печать:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — от прототипа до производства",
-    skills_tech: "<strong><em>Tech:</em></strong> Full-stack dev, облачные архитектуры, AI/ML в производстве",
+    skills_tech: "<strong><em>Coding:</em></strong> Full-stack dev, облачные архитектуры, AI/ML от производства до повседневной работы",
     skills_business: "<strong><em>Бизнес:</em></strong> Стратегия, операции, fundraising, управление МСП",
 
     business_juno: "<strong><em>JUNO.AM</em></strong> (2012) — Профессиональный сервис 3D-печати. Быстрое прототипирование, серийное производство, промышленный дизайн.",
-    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 линейками продуктов: MES-софт для AM, кастомное оборудование, операционные утилиты, продвинутые IT-услуги.",
+    business_3festo: "<strong><em>3FESTO</em></strong> (2020) — 4 линейки продуктов: MES-софт для AM, кастомное оборудование, операционные утилиты, продвинутые IT-услуги.",
+    business_freelance: "<strong><em>FREELANCE</em></strong> — Везде.",
 
     vision_quote: "Я верю, что цифровое производство — это мост между идеями и объектами. Моя работа — создавать инструменты, которые делают это возможным.",
 
