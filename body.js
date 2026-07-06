@@ -385,7 +385,7 @@ const i18n = {
     wm_cta_h2: "Raccontami il problema",
     wm_cta_intro: "Una mail con due righe di contesto basta. Se posso essere utile, lo capiamo in una prima call. Se non posso, te lo dico subito.",
     wm_cta_btn: "Scrivimi",
-    wm_vat_note: "Attività svolta con P.IVA (IT) 03456789012 — fatturazione regolare, NDA quando serve.",
+    wm_vat_note: "Attività svolta con P.IVA (IT) 03577361201 — fatturazione regolare, NDA quando serve.",
 
     st_kicker: "Biografia tecnica · 2009 → oggi",
     st_title: "15 anni dentro la stampa 3D",
@@ -432,7 +432,7 @@ const i18n = {
 
     vision_quote: "Credo che la manifattura digitale sia il ponte tra idee e oggetti. Il mio lavoro è costruire gli strumenti che rendono questo possibile.",
 
-    vat_label: "P.IVA (IT) 03456789012",
+    vat_label: "P.IVA (IT) 03577361201",
     hint_interact: "Trascina per ruotare il solido 3D"
   },
   en: {
@@ -538,7 +538,7 @@ const i18n = {
     wm_cta_h2: "Tell me about the problem",
     wm_cta_intro: "An email with two lines of context is enough. If I can help, we'll figure it out in a first call. If I can't, I'll tell you right away.",
     wm_cta_btn: "Write me",
-    wm_vat_note: "Work carried out under VAT (IT) 03456789012 — regular invoicing, NDA when needed.",
+    wm_vat_note: "Work carried out under VAT (IT) 03577361201 — regular invoicing, NDA when needed.",
 
     st_kicker: "Technical biography · 2009 → today",
     st_title: "15 years inside 3D printing",
@@ -586,7 +586,7 @@ const i18n = {
 
     vision_quote: "I believe digital manufacturing is the bridge between ideas and objects. My job is to build the tools that make this possible.",
 
-    vat_label: "VAT (IT) 03456789012",
+    vat_label: "VAT (IT) 03577361201",
     hint_interact: "Drag to rotate the 3D solid"
   },
   es: {
@@ -610,7 +610,7 @@ const i18n = {
 
     vision_quote: "Creo que la manufactura digital es el puente entre ideas y objetos. Mi trabajo es construir las herramientas que lo hacen posible.",
 
-    vat_label: "IVA (IT)03456789012",
+    vat_label: "IVA (IT)03577361201",
     hint_interact: "¡Interactúa con el sólido 3D!"
   },
   ca: {
@@ -634,7 +634,7 @@ const i18n = {
 
     vision_quote: "Crec que la manufactura digital és el pont entre idees i objectes. La meva feina és construir les eines que ho fan possible.",
 
-    vat_label: "IVA (IT)03456789012",
+    vat_label: "IVA (IT)03577361201",
     hint_interact: "Interactua amb el sòlid 3D!"
   },
   fr: {
@@ -658,7 +658,7 @@ const i18n = {
 
     vision_quote: "Je crois que la fabrication numérique est le pont entre les idées et les objets. Mon travail est de construire les outils qui rendent cela possible.",
 
-    vat_label: "TVA (IT)03456789012",
+    vat_label: "TVA (IT)03577361201",
     hint_interact: "Interagissez avec le solide 3D !"
   },
   sr: {
@@ -682,7 +682,7 @@ const i18n = {
 
     vision_quote: "Verujem da je digitalna proizvodnja most između ideja i objekata. Moj posao je da gradim alate koji to omogućavaju.",
 
-    vat_label: "PDV (IT)03456789012",
+    vat_label: "PDV (IT)03577361201",
     hint_interact: "Interagujte sa 3D telom!"
   },
   ru: {
@@ -706,7 +706,7 @@ const i18n = {
 
     vision_quote: "Я верю, что цифровое производство — это мост между идеями и объектами. Моя работа — создавать инструменты, которые делают это возможным.",
 
-    vat_label: "НДС (IT)03456789012",
+    vat_label: "НДС (IT)03577361201",
     hint_interact: "Взаимодействуйте с 3D-фигурой!"
   }
 };
@@ -794,7 +794,7 @@ const extraLanguageOverrides = {
     "tl_more": "Leer la historia completa →",
     "tl_now": "<strong>AI y software para sistemas de fabricación.</strong> Automatización, datos y herramientas para las personas que fabrican cosas.",
     "tl_now_y": "Hoy",
-    "vat_label": "IVA (IT) 03456789012",
+    "vat_label": "IVA (IT) 03577361201",
     "wm_cta_btn": "Escríbeme",
     "wm_cta_h2": "Cuéntame sobre el problema",
     "wm_cta_intro": "Un correo electrónico con dos líneas de contexto es suficiente. Si puedo ayudar, lo resolveremos en una primera llamada. Si no puedo, te lo diré enseguida.",
@@ -838,7 +838,7 @@ const extraLanguageOverrides = {
     "wm_svc8_d": "Para pymes y grupos industriales que quieran entender qué tiene realmente sentido hacer (y qué no) con la impresión 3D y AI en su empresa.",
     "wm_svc8_t": "Orientación sobre AM y AI",
     "wm_title": "Trabajo selectivamente con personas que fabrican, diseñan o construyen software para manufactura.",
-    "wm_vat_note": "Trabajo realizado bajo IVA (IT) 03456789012 — facturación periódica, NDA cuando sea necesario."
+    "wm_vat_note": "Trabajo realizado bajo IVA (IT) 03577361201 — facturación periódica, NDA cuando sea necesario."
   },
   "ca": {
     "biz_3festo_d": "MES programari per a la fabricació additiva, maquinari personalitzat, utilitats d'operacions i serveis informàtics avançats per a persones que realment produeixen.",
@@ -921,7 +921,7 @@ const extraLanguageOverrides = {
     "tl_more": "Llegeix la història sencera →",
     "tl_now": "<strong>AI i programari per a sistemes de fabricació.</strong> Automatització, dades i eines per a la gent que fa coses.",
     "tl_now_y": "Avui",
-    "vat_label": "IVA (IT) 03456789012",
+    "vat_label": "IVA (IT) 03577361201",
     "wm_cta_btn": "Escriu-me",
     "wm_cta_h2": "Explica'm el problema",
     "wm_cta_intro": "Un correu electrònic amb dues línies de context és suficient. Si puc ajudar, ho solucionarem en una primera trucada. Si no puc, t'ho diré de seguida.",
@@ -965,7 +965,7 @@ const extraLanguageOverrides = {
     "wm_svc8_d": "Per a pimes i grups industrials que volen entendre què té sentit fer (i què no) amb la impressió 3D i AI a la seva empresa.",
     "wm_svc8_t": "Orientació sobre AM i AI",
     "wm_title": "Treballo selectivament amb persones que fabriquen, dissenyen o construeixen programari per a la fabricació.",
-    "wm_vat_note": "Treball realitzat amb IVA (IT) 03456789012 — facturació habitual, NDA quan sigui necessari."
+    "wm_vat_note": "Treball realitzat amb IVA (IT) 03577361201 — facturació habitual, NDA quan sigui necessari."
   },
   "fr": {
     "biz_3festo_d": "MES logiciels pour la fabrication additive, matériel personnalisé, utilitaires d'exploitation et services informatiques avancés pour les personnes qui produisent réellement.",
@@ -1048,7 +1048,7 @@ const extraLanguageOverrides = {
     "tl_more": "Lire l'histoire complète →",
     "tl_now": "<strong>AI et logiciels pour les systèmes de fabrication.</strong> Automatisation, données et outils pour les personnes qui fabriquent des objets.",
     "tl_now_y": "Aujourd'hui",
-    "vat_label": "TVA (IT) 03456789012",
+    "vat_label": "TVA (IT) 03577361201",
     "wm_cta_btn": "Écrivez-moi",
     "wm_cta_h2": "Parlez-moi du problème",
     "wm_cta_intro": "Un email avec deux lignes de contexte suffit. Si je peux vous aider, nous le découvrirons lors d'un premier appel. Si je ne peux pas, je vous le dirai tout de suite.",
@@ -1092,7 +1092,7 @@ const extraLanguageOverrides = {
     "wm_svc8_d": "Pour les PME et les groupes industriels qui souhaitent comprendre ce qui a du sens – et ce qui ne l'est pas – avec l'impression 3D et AI dans leur entreprise.",
     "wm_svc8_t": "Conseils sur AM et AI",
     "wm_title": "Je travaille de manière sélective avec des personnes qui fabriquent, conçoivent ou créent des logiciels pour la fabrication.",
-    "wm_vat_note": "Travaux réalisés sous TVA (IT) 03456789012 — facturation régulière, NDA en cas de besoin."
+    "wm_vat_note": "Travaux réalisés sous TVA (IT) 03577361201 — facturation régulière, NDA en cas de besoin."
   },
   "sr": {
     "biz_3festo_d": "MES софтвер за адитивну производњу, прилагођени хардвер, оперативне услужне програме и напредне ИТ услуге за људе који стварно производе.",
@@ -1175,7 +1175,7 @@ const extraLanguageOverrides = {
     "tl_more": "Прочитајте целу причу →",
     "tl_now": "<strong>AI и софтвер за производне системе.{1}} Аутоматизација, подаци и алати за људе који праве ствари.",
     "tl_now_y": "данас",
-    "vat_label": "PDV (IT) 03456789012",
+    "vat_label": "PDV (IT) 03577361201",
     "wm_cta_btn": "Пишите ми",
     "wm_cta_h2": "Реци ми о проблему",
     "wm_cta_intro": "Довољан је е-маил са два реда контекста. Ако могу да помогнем, решићемо то у првом позиву. Ако не могу, одмах ћу ти рећи.",
@@ -1219,7 +1219,7 @@ const extraLanguageOverrides = {
     "wm_svc8_d": "За мала и средња предузећа и индустријске групе које желе да схвате шта заправо има смисла да раде – а шта не – са 3Д штампањем и AI у њиховој компанији.",
     "wm_svc8_t": "Смернице за AM и AI",
     "wm_title": "Радим селективно са људима који производе, дизајнирају или граде софтвер за производњу.",
-    "wm_vat_note": "Радови се обављају према ПДВ (ИТ) 03456789012 — редовно фактурисање, NDA по потреби."
+    "wm_vat_note": "Радови се обављају према ПДВ (ИТ) 03577361201 — редовно фактурисање, NDA по потреби."
   },
   "ru": {
     "biz_3festo_d": "MES Программное обеспечение для аддитивного производства, специальное оборудование, операционные утилиты и расширенные ИТ-услуги для людей, которые действительно занимаются производством.",
@@ -1302,7 +1302,7 @@ const extraLanguageOverrides = {
     "tl_more": "Читать всю историю →",
     "tl_now": "<strong>AI и программное обеспечение для производственных систем.</strong> Автоматизация, данные и инструменты для людей, которые что-то создают.",
     "tl_now_y": "Сегодня",
-    "vat_label": "НДС (IT) 03456789012",
+    "vat_label": "НДС (IT) 03577361201",
     "wm_cta_btn": "Напишите мне",
     "wm_cta_h2": "Расскажи мне о проблеме",
     "wm_cta_intro": "Достаточно электронного письма с двумя строками контекста. Если смогу помочь, разберемся при первом звонке. Если не смогу, сразу скажу.",
@@ -1346,7 +1346,7 @@ const extraLanguageOverrides = {
     "wm_svc8_d": "Для малых и средних предприятий и промышленных групп, которые хотят понять, что на самом деле имеет смысл делать — а что нет — с 3D-печатью и AI в своей компании.",
     "wm_svc8_t": "Рекомендации по AM и AI",
     "wm_title": "Я работаю выборочно с людьми, которые производят, проектируют или создают программное обеспечение для производства.",
-    "wm_vat_note": "Работы выполняются по НДС (ИТ) 03456789012 — регулярное выставление счетов, NDA при необходимости."
+    "wm_vat_note": "Работы выполняются по НДС (ИТ) 03577361201 — регулярное выставление счетов, NDA при необходимости."
   }
 };
 
