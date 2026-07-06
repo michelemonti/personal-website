@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self';">
-  <meta name="description" content="Michele Monti - Multidisciplinary entrepreneur with 15 years in digital manufacturing, industrial design and emerging technologies. CEO at JUNO.AM and Head of Products at ANY3DP.">
-  <meta name="keywords" content="Michele Monti, digital manufacturing, 3D printing, industrial design, entrepreneur, JUNO.AM, ANY3DP">
+  <meta name="description" content="Michele Monti - Multidisciplinary entrepreneur with 15 years in digital manufacturing, industrial design and emerging technologies. CEO at JUNO.AM and Head of Products at 3FESTO / ANY3DP.">
+  <meta name="keywords" content="Michele Monti, digital manufacturing, 3D printing, additive manufacturing, industrial design, entrepreneur, JUNO.AM, ANY3DP, 3FESTO, AM consulting">
   <meta name="author" content="Michele Monti">
   <meta property="og:title" content="Michele Monti | Digital Manufacturing Entrepreneur">
   <meta property="og:description" content="Multidisciplinary entrepreneur with 15 years in digital manufacturing, industrial design and emerging technologies.">
@@ -20,9 +20,10 @@
   <title>Michele Monti | Digital Manufacturing Entrepreneur</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;800;900&display=swap" rel="stylesheet">
   <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/exo/v20/4UaGrENHsxJlGDuGo1OIlL3Owp4.woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="restyle.css">
   <link rel="icon" type="image/png" href="/img/logo-miky.png">
   <link rel="preload" as="image" href="/img/michele-monti-logo.png" imagesrcset="/img/michele-monti-logo.png 1x" fetchpriority="high">
 </head>
@@ -65,67 +66,87 @@
     >
   </header>
 
-  <div class="intro-wrapper">
-    <p>
-      <br class="intro-text" data-i18n="intro">
+  <main>
+    <div class="intro-wrapper">
+      <p data-i18n="intro">
         Imprenditore con 15 anni nella manifattura digitale e Stampa 3D industriale (Additive Manufacturing). <br> CEO di <strong class="highlight-text">JUNO.AM</strong>, Head of Products per <strong class="highlight-text">3FESTO</strong> / ANY3DP. <br> Invento. Costruisco aziende, prodotti e team.
-      </br>
-    </p>
-  </div>
-  <section class="section">
-    <div class="section-header">
-    <span class="section-icon section-icon--light">📖</span>
-  <h2 data-i18n="skills_h2">COMPETENZE</h2>
+      </p>
     </div>
-    <ul>
-      <li data-i18n="skills_design"><strong><em>Design & CAD:</em></strong> Modellazione parametrica e organica, DfAM, reverse engineering</li>
-      <li data-i18n="skills_3dp"><strong><em>Stampa 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — dalla prototipazione alla produzione</li>
-      <li data-i18n="skills_tech"><strong><em>Tech:</em></strong> Full-stack dev, architetture cloud, AI/ML applicata al manufacturing</li>
-      <li data-i18n="skills_business"><strong><em>Business:</em></strong> Strategia, operations, fundraising, gestione PMI</li>
-    </ul>
-  </section>
 
-  <section class="section">
-    <div class="section-header">
-  <span class="section-icon section-icon--light">🏢</span>
-      <h2 data-i18n="business_h2">BUSINESS</h2>
-    </div>
-    <ul>
-      <li data-i18n="business_juno"><strong><em>JUNO.AM</em></strong> (Since 2012) — Service bureau 3D printing professionale. Prototipazione rapida, produzione in serie, design industriale.</li>
-      <li data-i18n="business_3festo"><strong><em>3FESTO</em></strong> (Since 2020) — MES software per AM, smart hardware custom, software utilities, servizi IT avanzati.</li>
-      <li data-i18n="business_freelance"><strong><em>FREELANCE </em></strong> — Everywhere.</li
-    </ul>
-  </section>
-
-  <section class="section">
-    <div class="section-header">
-    <span class="section-icon section-icon--light">🌍</span>
-  <h2 data-i18n="vision_h2">VISIONE</h2>
-    </div>
-  <blockquote data-i18n="vision_quote">
-"Credo che la manifattura digitale sia il ponte tra idee e oggetti. Il software è il veicolo per percorrerlo. Il mio lavoro è creare l'energia che rende questo possibile."
-</blockquote>
-  </section>
-
-  <div class="logos">
-    <div class="logos-title" data-i18n="logos_title">
-      LE MIE IMPRESE E LA MIA ATTIVITÀ PERSONALE:
-    </div>
-    <div class="logos-row">
-  <a class="logo-item" href="https://juno.am" target="_blank" rel="noopener noreferrer" title="JUNO.AM">
-        <img src="/img/logo-junoam.png" alt="JUNO.AM Company Logo" width="90" height="80" loading="lazy" decoding="async">
-        <div class="logo-label">JUNO.AM</div>
-      </a>
-      <div class="logo-item" title="Freelance Services">
-        <img src="/img/logo-miky.png" alt="Michele Miky Monti Personal Brand Logo" width="90" height="80" loading="lazy" decoding="async">
-        <div class="logo-label logo-label-small" data-i18n="vat_label">P.IVA (IT)03456789012</div>
+    <section class="commercial-card" aria-labelledby="commercial-title">
+      <p class="commercial-kicker">P.IVA attiva · consulenza selezionata</p>
+      <h1 id="commercial-title">Porto l’Additive Manufacturing fuori dal laboratorio: processo, software, produzione e team.</h1>
+      <p>
+        Intervengo dove AM, manufacturing reale, automazione software e organizzazione delle persone devono diventare un sistema produttivo misurabile.
+      </p>
+      <div class="commercial-actions">
+        <a class="cta-button" href="mailto:michele.monti@me.com?subject=AM%20Production%20Readiness%20Audit">Parliamo di un audit AM</a>
+        <a class="cta-button-secondary" href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank" rel="noopener noreferrer">LinkedIn / contatto business</a>
       </div>
-  <a class="logo-item" href="https://3festo.com" target="_blank" rel="noopener noreferrer" title="3FESTO">
-        <img src="/img/logo-any3dp.png" alt="3FESTO Platform Logo" width="90" height="80" loading="lazy" decoding="async">
-        <div class="logo-label">3FESTO</div>
-      </a>
+    </section>
+
+    <div class="positioning-strip" aria-label="Positioning">
+      <span>AM industriale</span>
+      <span>Manufacturing systems</span>
+      <span>Software & AI</span>
+      <span>Team tecnici</span>
     </div>
-  </div>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon section-icon--light">📖</span>
+        <h2 data-i18n="skills_h2">COMPETENZE</h2>
+      </div>
+      <ul>
+        <li data-i18n="skills_design"><strong><em>Design & CAD:</em></strong> Modellazione parametrica e organica, DfAM, reverse engineering</li>
+        <li data-i18n="skills_3dp"><strong><em>Stampa 3D:</em></strong> HP MJF, Carbon DLS, DMLS, FDM, PolyJet — dalla prototipazione alla produzione</li>
+        <li data-i18n="skills_tech"><strong><em>Tech:</em></strong> Full-stack dev, architetture cloud, AI/ML applicata al manufacturing</li>
+        <li data-i18n="skills_business"><strong><em>Business:</em></strong> Strategia, operations, fundraising, gestione PMI</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon section-icon--light">🏢</span>
+        <h2 data-i18n="business_h2">BUSINESS</h2>
+      </div>
+      <ul>
+        <li data-i18n="business_juno"><strong><em>JUNO.AM</em></strong> (Since 2012) — Service bureau 3D printing professionale. Prototipazione rapida, produzione in serie, design industriale.</li>
+        <li data-i18n="business_3festo"><strong><em>3FESTO</em></strong> (Since 2020) — MES software per AM, smart hardware custom, software utilities, servizi IT avanzati.</li>
+        <li data-i18n="business_freelance"><strong><em>FREELANCE </em></strong> — Everywhere.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <span class="section-icon section-icon--light">🌍</span>
+        <h2 data-i18n="vision_h2">VISIONE</h2>
+      </div>
+      <blockquote data-i18n="vision_quote">
+        "Credo che la manifattura digitale sia il ponte tra idee e oggetti. Il software è il veicolo per percorrerlo. Il mio lavoro è creare l'energia che rende questo possibile."
+      </blockquote>
+    </section>
+
+    <div class="logos">
+      <div class="logos-title" data-i18n="logos_title">
+        LE MIE IMPRESE E LA MIA ATTIVITÀ PERSONALE:
+      </div>
+      <div class="logos-row">
+        <a class="logo-item" href="https://juno.am" target="_blank" rel="noopener noreferrer" title="JUNO.AM">
+          <img src="/img/logo-junoam.png" alt="JUNO.AM Company Logo" width="90" height="80" loading="lazy" decoding="async">
+          <div class="logo-label">JUNO.AM</div>
+        </a>
+        <a class="logo-item" href="mailto:michele.monti@me.com?subject=Consulenza%20AM%20/%20P.IVA" title="Freelance Services">
+          <img src="/img/logo-miky.png" alt="Michele Miky Monti Personal Brand Logo" width="90" height="80" loading="lazy" decoding="async">
+          <div class="logo-label logo-label-small" data-i18n="vat_label">P.IVA (IT)03456789012</div>
+        </a>
+        <a class="logo-item" href="https://3festo.com" target="_blank" rel="noopener noreferrer" title="3FESTO">
+          <img src="/img/logo-any3dp.png" alt="3FESTO Platform Logo" width="90" height="80" loading="lazy" decoding="async">
+          <div class="logo-label">3FESTO</div>
+        </a>
+      </div>
+    </div>
+  </main>
 
   <div id="interaction-hint" class="interaction-hint" aria-hidden="true">
     <span class="hint-icon">🎮</span>
@@ -133,7 +154,7 @@
   </div>
 
   <footer>
-  <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank" rel="noopener noreferrer">GitHub</a> • <a href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+    <p>👨‍💻 <a href="mailto:michele.monti@me.com">michele.monti@me.com</a> • <a href="https://github.com/michelemonti" target="_blank" rel="noopener noreferrer">GitHub</a> • <a href="https://www.linkedin.com/in/michele-monti-96589761/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
     <p>&copy; 2026 Michele Miky Monti + Copilot</p>
   </footer>
 
