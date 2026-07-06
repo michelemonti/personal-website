@@ -1370,7 +1370,11 @@ function applyLanguage(lang) {
     }
   });
   const buttons = document.querySelectorAll('#lang-toggle button');
-  buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+  buttons.forEach(btn => {
+    const isActive = btn.dataset.lang === lang;
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
+  });
   try { localStorage.setItem('lang', lang); } catch {}
 }
 
