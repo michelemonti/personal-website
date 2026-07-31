@@ -1,5 +1,3 @@
-# Dependencies
-
 # OS generated files
 .DS_Store
 Thumbs.db
@@ -14,3 +12,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.swp
+
+# Python build caches
+__pycache__/
+*.py[cod]
+
+book_VersionOctober2024.pdf
