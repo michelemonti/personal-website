@@ -1,40 +1,39 @@
-# Miky Monti Personal Website
+# michelemonti.me
 
-A simple, minimalist personal website for Michele "Miky" Monti, showcasing his professional background in digital manufacturing, industrial design, and emerging technologies.
+Personal website for Michele “Miky” Monti: digital manufacturing, industrial
+3D printing, software products and technical leadership.
 
-## Overview
+The site is intentionally written without frameworks or UI libraries. It uses
+semantic HTML, modern CSS and vanilla JavaScript; Three.js is the only external
+dependency and powers the interactive 3D environment.
 
-This is a static website built with plain HTML, CSS, and JavaScript. It features a 3D interactive background using Three.js, multilingual support (7 languages), and a clean, responsive design. No complex frameworks or build tools are used—keeping it intentionally simple and lightweight.
+## What is inside
 
-## Technologies
+- Four content areas: home, professional profile, experience and working together
+- Seven complete language editions: Italian, English, Spanish, Catalan, French,
+  Serbian and Russian
+- Responsive navigation with localized routes and reciprocal `hreflang` links
+- An accessible WebGL experience with pointer, touch and keyboard controls
+- Structured data for `Person`, `ProfilePage`, `CollectionPage`, `Service`,
+  `WebSite` and breadcrumbs
+- Static discovery resources: `sitemap.xml`, `robots.txt`, `llms.txt` and
+  `michele-monti.json`
+- Progressive enhancement: content and navigation remain available if WebGL or
+  JavaScript is unavailable
 
-- **HTML5** for structure
-- **CSS3** for styling and animations
-- **JavaScript** for interactivity and i18n
-- **Three.js** for 3D graphics
-- **GitHub Pages** for hosting
+## Technical approach
 
-## Deployment
+The public pages are plain static documents. Shared visual rules live in
+`style.css`; `site-chrome.js` keeps navigation and locale routing consistent;
+`body.js` contains the Three.js scene and its interactions.
 
-The site auto-deploys via GitHub Pages. Simply push changes to the `main` branch, and GitHub will handle the rest.
-
-## Local Development
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/michelemonti/personal-website.git
-   cd personal-website
-   ```
-
-2. Open `index.html` in your browser to view the site.
-
-No server or build process required—just edit the files and refresh.
+There is no application framework, package manager, remote font, analytics SDK
+or build-time dependency. The implementation is deliberately small,
+inspectable and hand-written.
 
 ## Contact
 
-- Email: [michele.monti@me.com](mailto:michele.monti@me.com)
-- LinkedIn: [linkedin.com/in/michele-monti-96589761](https://www.linkedin.com/in/michele-monti-96589761/)
-- GitHub: [github.com/michelemonti](https://github.com/michelemonti)
+- [LinkedIn](https://www.linkedin.com/in/michele-monti-96589761/)
+- [GitHub](https://github.com/michelemonti)
 
-© 2025 Michele Monti
-<parameter name="filePath">/home/michele/michelemonti.me/personal-website/README.md
+© 2026 Michele Monti
