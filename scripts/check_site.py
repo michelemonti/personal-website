@@ -14,6 +14,10 @@ from urllib.parse import unquote, urlsplit
 ROOT = Path(__file__).resolve().parents[1]
 SITE_URL = "https://michelemonti.me"
 THREE_JS_URL = "https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"
+EXO_STYLESHEET_PREFIX = "https://fonts.googleapis.com/css2?family=Exo"
+ALLOWED_STYLE_HOSTS = {"fonts.googleapis.com"}
+ALLOWED_FONT_HOSTS = {"fonts.gstatic.com"}
+ALLOWED_PRECONNECT_HOSTS = {"fonts.googleapis.com", "fonts.gstatic.com"}
 PAGES = ("home", "profile", "experience", "work")
 LANGUAGE_TAGS = {
     "it": "it-IT",
@@ -207,8 +211,12 @@ def validate_page(locale: str, page: str, route: str) -> None:
     check(document.header.get("data-page") == page, f"{label}: wrong header page")
     check("data-i18n=" not in source, f"{label}: stale runtime translation hooks")
     check("data-static=" not in source, f"{label}: stale static-header hook")
-    check("fonts.googleapis.com" not in source, f"{label}: external font reference")
-    check("fonts.gstatic.com" not in source, f"{label}: external font reference")
+    check("family=Exo" in source, f"{label}: missing Exo font stylesheet")
+    check('name="theme-color"' in source, f"{label}: missing theme-color")
+    check('name="color-scheme"' in source, f"{label}: missing color-scheme")
+    check(f"{SITE_URL}/llms.txt" in source, f"{label}: missing llms.txt discovery link")
+    check(f"{SITE_URL}/michele-monti.json" in source, f"{label}: missing entity JSON link")
+    check('rel="author"' in source, f"{label}: missing author link")
     check(len(document.ids) == len(set(document.ids)), f"{label}: duplicate element id")
     check(
         all(
@@ -343,21 +351,26 @@ def validate_localized_structures() -> None:
 
 
 def validate_external_dependencies() -> None:
-    allowed = {THREE_JS_URL}
+    allowed_scripts = {THREE_JS_URL}
     for path in ROOT.rglob("*.html"):
+        if path.name == "story.html":
+            continue
         source, document = parse_document(path)
         for link in document.links:
             href = link.get("href", "")
-            if "stylesheet" in link.get("rel", "").split() and urlsplit(href).netloc:
-                errors.append(f"{path.relative_to(ROOT)}: external stylesheet {href}")
+            rels = set(link.get("rel", "").split())
+            host = urlsplit(href).netloc
+            if "stylesheet" in rels and host:
+                if host not in ALLOWED_STYLE_HOSTS or not href.startswith(EXO_STYLESHEET_PREFIX):
+                    errors.append(f"{path.relative_to(ROOT)}: unexpected external stylesheet {href}")
+            if "preconnect" in rels and host and host not in ALLOWED_PRECONNECT_HOSTS:
+                errors.append(f"{path.relative_to(ROOT)}: unexpected preconnect {href}")
         for script in document.scripts:
             src = script.get("src", "")
-            if urlsplit(src).netloc and src not in allowed:
+            if urlsplit(src).netloc and src not in allowed_scripts:
                 errors.append(f"{path.relative_to(ROOT)}: external script {src}")
-        check(
-            "fonts.googleapis.com" not in source,
-            f"{path.relative_to(ROOT)}: Google Fonts reference",
-        )
+        check("fonts.googleapis.com" in source, f"{path.relative_to(ROOT)}: missing Google Fonts Exo")
+        check("fonts.gstatic.com" in source, f"{path.relative_to(ROOT)}: missing fonts.gstatic preconnect")
 
 
 def validate_public_resources() -> None:
@@ -381,6 +394,13 @@ def validate_public_resources() -> None:
             entity.get("@id") == f"{SITE_URL}/#michele-monti",
             "michele-monti.json: wrong entity identifier",
         )
+        image = entity.get("image") or {}
+        check(
+            isinstance(image, dict) and image.get("url") == f"{SITE_URL}/img/michele-monti-logo.png",
+            "michele-monti.json: missing canonical image",
+        )
+        same_as = entity.get("sameAs") or []
+        check(f"{SITE_URL}/" in same_as, "michele-monti.json: website missing from sameAs")
 
     story_source, story = parse_document(ROOT / "story.html")
     check(story.html_lang == "it", "story.html: wrong language")
@@ -397,6 +417,28 @@ def validate_public_resources() -> None:
         story_canonicals == [f"{SITE_URL}/esperienze.html"],
         "story.html: wrong canonical",
     )
+
+    humans = ROOT / "humans.txt"
+    check(humans.is_file(), "humans.txt: missing")
+    if humans.is_file():
+        humans_text = humans.read_text(encoding="utf-8")
+        check("Michele" in humans_text, "humans.txt: missing creator")
+        check("Exo" in humans_text, "humans.txt: missing Exo dependency note")
+
+    security = ROOT / ".well-known" / "security.txt"
+    check(security.is_file(), "security.txt: missing")
+    if security.is_file():
+        security_text = security.read_text(encoding="utf-8")
+        check("Contact:" in security_text, "security.txt: missing contact")
+        check("Expires:" in security_text, "security.txt: missing expiry")
+
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    for bot in ("GPTBot", "ClaudeBot", "PerplexityBot", "Google-Extended", "Applebot-Extended"):
+        check(bot in robots, f"robots.txt: missing {bot} allow rule")
+
+    llms = (ROOT / "llms.txt").read_text(encoding="utf-8")
+    check("How AI systems should use this site" in llms, "llms.txt: missing AI usage guidance")
+    check("Identity disambiguation" in llms, "llms.txt: missing disambiguation section")
 
 
 def main() -> int:
@@ -417,7 +459,7 @@ def main() -> int:
     page_count = len(ROUTES) * len(PAGES)
     print(
         f"Validated {page_count} localized pages; "
-        "Three.js is the only external dependency."
+        "external dependencies: Three.js + Google Fonts Exo."
     )
     return 0
 
