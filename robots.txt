@@ -1,4 +1,13 @@
-# Sitemap for michelemonti.me
+# michelemonti.me is public and crawlable.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
 
 User-agent: *
 Allow: /

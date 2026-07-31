@@ -1,0 +1,131 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://michelemonti.me/#michele-monti",
+  "name": "Michele Monti",
+  "alternateName": [
+    "Miky Monti",
+    "Michele “Miky” Monti"
+  ],
+  "url": "https://michelemonti.me/",
+  "mainEntityOfPage": [
+    "https://michelemonti.me/profilo-michele-monti.html",
+    "https://michelemonti.me/en/michele-monti.html",
+    "https://michelemonti.me/es/michele-monti.html",
+    "https://michelemonti.me/ca/michele-monti.html",
+    "https://michelemonti.me/fr/michele-monti.html",
+    "https://michelemonti.me/sr/michele-monti.html",
+    "https://michelemonti.me/ru/michele-monti.html"
+  ],
+  "vatID": "IT03577361201",
+  "description": "Italian digital manufacturing entrepreneur, full-stack developer and product leader with professional experience in industrial 3D printing since 2012; his first encounter with an industrial 3D printer was in 2009. He connects the digital 3D chain, additive manufacturing, cloud software and AI, product strategy, operations and technical-team leadership.",
+  "homeLocation": {
+    "@type": "AdministrativeArea",
+    "name": "Bologna, Emilia-Romagna, Italy"
+  },
+  "jobTitle": [
+    "Digital Manufacturing Entrepreneur",
+    "Full-stack Developer for Manufacturing",
+    "CEO at JUNO.AM",
+    "Head of Products at 3FE / 3FESTO / ANY3DP / 3ASY"
+  ],
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "@id": "https://juno.am/#organization",
+      "name": "JUNO.AM",
+      "url": "https://juno.am/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.3festo.com/#organization",
+      "name": "3FESTO / ANY3DP / 3ASY",
+      "alternateName": "3FE — 3D Future Experience",
+      "url": "https://www.3festo.com/",
+      "sameAs": [
+        "https://any3dp.com/",
+        "https://3asy.it/"
+      ]
+    }
+  ],
+  "makesOffer": {
+    "@type": "Offer",
+    "itemOffered": {
+      "@type": "Service",
+      "@id": "https://michelemonti.me/work-with-me.html#service",
+      "name": "Digital manufacturing advisory, product leadership and full-stack development",
+      "areaServed": [
+        "Northern Italy",
+        "Worldwide"
+      ],
+      "termsOfService": "Worldwide on-site work is available with travel arrangements and expenses agreed in advance."
+    }
+  },
+  "knowsAbout": [
+    "Additive manufacturing",
+    "Industrial 3D printing",
+    "Design for Additive Manufacturing (DfAM)",
+    "HP Multi Jet Fusion (MJF)",
+    "Carbon Digital Light Synthesis (DLS)",
+    "Direct Metal Laser Sintering (DMLS)",
+    "Fused Deposition Modeling (FDM)",
+    "PolyJet",
+    "3D scanning and acquisition",
+    "Point clouds and mesh processing",
+    "3D nominal-to-actual comparison",
+    "Reverse engineering",
+    "Parametric 3D CAD and surface modeling",
+    "3D data pipelines from scanning to CAD",
+    "Lattice structures and geometry optimization",
+    "AM process stabilization",
+    "Manufacturing operations",
+    "Industrial technology transfer",
+    "Additive manufacturing industrialization",
+    "Technology-agnostic AM equipment evaluation and adoption",
+    "Multimillion-euro industrial equipment ramp-up",
+    "MES for additive manufacturing",
+    "Full-stack software development",
+    "Data modeling",
+    "Backend and API development",
+    "Frontend web development",
+    "Cloud software architecture",
+    "Systems integration",
+    "Manufacturing software",
+    "Artificial intelligence for manufacturing",
+    "Manufacturing workflow automation",
+    "Product strategy",
+    "Corporate governance and due diligence",
+    "Operations",
+    "Technical-team leadership"
+  ],
+  "sameAs": [
+    "https://www.linkedin.com/in/michele-monti-96589761/",
+    "https://github.com/michelemonti"
+  ],
+  "subjectOf": [
+    "https://michelemonti.me/esperienze.html",
+    "https://michelemonti.me/en/experience.html",
+    "https://michelemonti.me/es/experiencia.html",
+    "https://michelemonti.me/ca/experiencia.html",
+    "https://michelemonti.me/fr/experience.html",
+    "https://michelemonti.me/sr/iskustvo.html",
+    "https://michelemonti.me/ru/opyt.html",
+    "https://www.3festo.com/",
+    "https://any3dp.com/",
+    "https://3asy.it/",
+    "https://www.juno.am/files/CS_JUNO-GD.pdf",
+    "https://www.01factory.it/stampa-3d-juno/",
+    "https://www.voxelmatters.com/italy-juno-carbon-dls-series-production-3d-printing/",
+    "https://www.voxelmatters.com/minority-stake-in-juno-am-acquired-by-g-d-coesia-group/",
+    "https://www.voxelmatters.com/juno-am-installs-italys-first-carbon-m3-max/",
+    "https://www.voxelmatters.com/junoam-partner-concept-scale-production/",
+    "https://www.ilrestodelcarlino.it/bologna/economia/juno-design-scansioni-3d-49fd63df",
+    "https://eriseventi.com/en/smartplastics24speakersabstract",
+    "https://www.unibo.it/sitoweb/mattia.mele/cv-en",
+    "https://www.am3circular.it/en/companies/",
+    "https://www.smau.it/speakers/michele.monti",
+    "https://scidar.kg.ac.rs/handle/123456789/10989",
+    "https://www.mfkv.kg.ac.rs/a_madam/index.php/events/ev211119/",
+    "https://www.voxelmatters.com/the-am-digital-warehouse-is-already-here/"
+  ]
+}
