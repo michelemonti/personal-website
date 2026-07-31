@@ -1,0 +1,4 @@
+Contact: https://www.linkedin.com/in/michele-monti-96589761/
+Preferred-Languages: it, en
+Canonical: https://michelemonti.me/.well-known/security.txt
+Expires: 2027-07-31T00:00:00.000Z

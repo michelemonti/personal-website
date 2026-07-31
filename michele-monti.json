@@ -99,6 +99,7 @@
     "Technical-team leadership"
   ],
   "sameAs": [
+    "https://michelemonti.me/",
     "https://www.linkedin.com/in/michele-monti-96589761/",
     "https://github.com/michelemonti"
   ],
@@ -127,5 +128,23 @@
     "https://scidar.kg.ac.rs/handle/123456789/10989",
     "https://www.mfkv.kg.ac.rs/a_madam/index.php/events/ev211119/",
     "https://www.voxelmatters.com/the-am-digital-warehouse-is-already-here/"
-  ]
+  ],
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://michelemonti.me/img/michele-monti-logo.png",
+    "width": 1024,
+    "height": 1024,
+    "caption": "Michele Monti"
+  },
+  "nationality": "Italian",
+  "knowsLanguage": [
+    "it",
+    "en",
+    "es",
+    "ca",
+    "fr",
+    "sr",
+    "ru"
+  ],
+  "gender": "Male"
 }
